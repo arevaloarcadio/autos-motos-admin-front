@@ -1,0 +1,105 @@
+<div>
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+       <p class="title-dashboard">Importación masiva de anuncios</p>
+    </div>
+    <div class="col-md-2">
+       <button class="create-ads" (click)="redirect('admin/products-massive-import-upload')" >CREAR ANUNCIOS</button>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="row" style="margin: 16px;">
+      <div class="col-md-4">
+         <p class="title-table-ads">Anuncios subidos</p>
+      </div>
+      <div class="col-md-8">
+
+        <div  style="display: flex;justify-content: center;">
+           <div class="input-icons"> 
+              <select class="input-select" id="seller" >
+                <option>Tipo de vendedor</option>
+                <option>Vendedor ocasional</option>
+                <option>Vendedor profesional</option>
+                <option>Todos</option>
+              </select>
+               <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
+            </div>
+            <div class="input-icons">
+              <input class="input-date"  placeholder="Fecha" matInput [matDatepicker]="picker">
+              <mat-datepicker #picker></mat-datepicker>
+              <i class="icon"  mat-raised-button (click)="picker.open()"><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
+            </div>
+            <div class="input-icons"> 
+              <select class="input-select" id="seller" >
+                <option>Ordenar Por</option>
+                <option>Aprobado</option>
+                <option>Rechazado</option>
+                <option>Pendiente</option>
+              </select>
+               <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
+            </div>
+        </div>
+      </div>
+    </div>
+   
+    
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <!--<mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>-->
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <!--<mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>-->
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Usuario </th>
+      <td mat-cell *matCellDef="let element" class="td-table-user"> 
+        <img src="assets/img/user-icon-header.svg">&nbsp;&nbsp; {{element.user.first_name}} {{element.user.last_name}} 
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Tipo de Vendedor </th>
+      <td mat-cell *matCellDef="let element"> {{element.user.type == 'professional' ? 'Profesional' : 'Ocasional'}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Fecha </th>
+      <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+     <ng-container matColumnDef="option">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Opciones </th>
+      <td mat-cell *matCellDef="let element" class="td-table" [routerLink]="['/admin/products-massive-import', element.id,element.user.id]"> {{element.option}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        (click)="selection.toggle(row)">
+    </tr>
+  </table>
+  </div>
+</div>

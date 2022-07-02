@@ -1,0 +1,135 @@
+@import 'variables';
+
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url("../font/Ubuntu-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url("../font/Ubuntu-Regular.ttf");
+    font-weight: normal;
+
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url("../font/Ubuntu-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url("../font/Ubuntu-Bold.ttf");
+    font-weight: 600;
+}
+
+
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+    line-height: calculateRem($size)*1.5;
+}
+
+* {
+    font-family: Ubuntu;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-weight: 400;
+    color: $textoGris;
+    @include font-size(15px);
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-family: Ubuntu;
+    @include font-size(15px);
+    color: $textoGris;
+    display: grid;
+    position: relative;
+}
+
+/* 24, 20, 18, 16, 14,   */
+h1,h2,h3,h4,h5{margin: 0px; padding: 0px;}
+h1{@include font-size(22px)}
+h2{@include font-size(18px)}
+h3{@include font-size(16px)}
+h4{@include font-size(14px)}
+h5{@include font-size(12px)}
+
+
+ul{
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    max-width: max-content;
+    grid-gap:10px;
+
+    li{
+        list-style: none;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        grid-gap:5px;
+        cursor: pointer;
+
+        ul{
+            list-style: none;
+            display: grid;
+            grid-auto-flow: row;
+        }
+    }
+}
+
+
+
+input[type=checkbox]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    max-width: 15px;
+    height: 15px;
+    min-width: 15px;
+    padding: 0px;
+    background-color: white;
+    border-radius: 3px;
+    outline: 2px solid #A6A6A6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+input[type=checkbox]:checked{
+    width: 15px;
+    height: 15px;
+    padding: 0px;
+    position: relative;
+    outline: 2px solid $rojo;
+}
+input[type=checkbox]:checked+label{
+    color: $rojo;
+}
+input[type=checkbox]:checked:before{
+    width: 15px;
+    height: 5px;
+    margin-left: 3px;
+    position: absolute;
+    top: -3px;
+    padding: 0px;
+    content: '✔';
+    font-size: 14px;
+    color: $rojo;
+}

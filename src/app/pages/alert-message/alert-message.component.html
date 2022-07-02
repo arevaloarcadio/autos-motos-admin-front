@@ -1,0 +1,27 @@
+<div style="width: 612px">
+ <div class="row">
+ 	<div class="col-md-6">
+ 		
+ 	</div>
+ 	<div class="col-md-6">
+ 		<img src="assets/img/icon-close.svg" (click)="closeDialog()" style="float: right;">
+ 	</div>
+ </div>
+ <br>
+ <br>
+
+<div style="text-align: center;">
+	<img *ngIf="data.error == true" src="assets/img/error-icon.svg">
+	<img *ngIf="data.success == true" src="assets/img/success.svg">
+	<img *ngIf="data.ad_accepted == true" src="assets/img/accepted.svg">
+	<img *ngIf="data.ad_rejected == true" src="assets/img/rejected.svg">
+	<br><br>
+	<p class="message-alert">{{data.message}}</p>
+
+	<br>
+	<!--<button *ngIf="data.error == true" class="button-alert">volver a mi tienda</button>
+	<button *ngIf="data.success == true" class="button-alert">volver a mi tienda</button>-->
+	<button *ngIf="data.ad_rejected == true" class="button-alert" (click)="comment()">hacer comentario</button>
+	<br>
+</div>
+</div>

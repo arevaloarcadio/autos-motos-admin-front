@@ -1,0 +1,39 @@
+<div>
+  <br>
+  <div class="row">
+    <div class="col-md-8" >
+      <img src="assets/img/arrow.svg" (click)="redirect('admin/products-massive-import')" style="position: absolute;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="title-dashboard" style="margin-left: 30px;margin-top: -39px;">Crear importanción masiva de anuncios</p>
+    </div>
+  </div>
+  <br>
+  <p class="title-upload-massive">Publicación masiva de productos</p>
+  <div class="row">
+    <div class="col-md-8">
+      <p class="description"  >Descarga la planilla .csv para completar los datos de tus productos. Una vez completado vuelve a subirla para terminar de publicar.</p>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-download" >
+        <div  style="display: flex;justify-content: center;" >
+          <img src="assets/img/download.svg"   style="width: 53px;height: 53px;margin-left: -220px;">
+          <a class="download" href="assets/files/export.csv"  (click)="handlerDownload()"  style=" margin-left: 15px;margin-top: 10px;"> Descargar planilla csv</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8"  >
+      <img src="assets/img/points.svg" style="margin-top: 27px;position: absolute;">&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="description" style="padding-left: 13px;padding-left: 34px;">Si tienes dudas sobre como utilizar la planilla ingresa aquí. <span style="color: #ED1C24;" (click)="openDialog()">Ayuda</span></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8"  >
+      <img src="assets/img/points.svg" style="margin-top: 27px;position: absolute;">&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="description" style="padding-left: 13px;padding-left: 34px;">Si tiene planilla csv.<span style="color: #ED1C24;" (click)="redirect('/admin/products-massive-import-upload-file')"> Presione aqui</span></p>
+    </div>
+  </div>
+</div>

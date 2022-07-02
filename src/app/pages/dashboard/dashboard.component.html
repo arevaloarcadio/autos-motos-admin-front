@@ -1,0 +1,63 @@
+<div>
+  <p class="title-dashboard">Dashboard</p>
+  <br>
+  <div class="row">
+    <div class="col-md-6 panel-red" style="box-shadow: 0px 0px 9px rgba(102, 102, 102, 0.3);">
+      <div class="panel-red">
+        <p class="text-panel-red">Total de anuncios publicados</p>
+        <p class="text-panel-red-num">200</p>
+      </div>
+        
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel-white" style="box-shadow: 0px 0px 9px rgba(102, 102, 102, 0.3);">
+        <p class="text-panel-white">Total de productos vendidos</p>
+      <p class="text-panel-white-num">154</p>
+      </div>
+      
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <br>
+      <p class="title-dashboard">Inventario de anuncios</p>
+      <br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"> 
+      <mat-form-field appearance="outline">
+        <mat-date-range-input [rangePicker]="picker">
+          <input matInput   matStartDate  placeholder="Fecha Desde" (dateChange)="getDate($event,'start')" >
+          <input  matEndDate (dateModel)="end"   placeholder="Fecha Hasta"  (dateChange)="getDate($event,'end')" >
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-6" >
+      <div class="row">
+        <div class="col-md-3" style="padding-top: 22px;"><p class="text-filter" >Filtro aplicado:</p> </div>
+       <div class="col-md-6" style="padding-top: 20px;"><span class="span-filter" *ngFor="let filter of filters"> {{filter.start}} a {{filter.end}} <img src="assets/img/close-filter.svg" id="close-filter"> </span>  </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div *ngFor="let item of ads" class="col-md-4"> 
+      <div class="card-ads">
+        <p class="title-card-ads">{{item?.source}}</p> 
+        <p class="count-card-ads">{{item?.count}}</p> 
+        <p class="imported-ads"> <img src="assets/img/archives.svg"> Anuncios importados</p> 
+      </div> 
+    </div>
+  </div>
+  <br><br>
+
+</div>

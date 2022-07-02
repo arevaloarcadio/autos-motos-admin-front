@@ -1,0 +1,42 @@
+<div class="temp-login">
+    
+   
+    <header>
+
+        <img class="header-img" src ="../../../assets/img/main.svg"  />
+      
+    </header>
+    <br><br>
+    <img src="../../../assets/img/logo2-login.svg">
+    <br><br>  <br>    
+    <div class="card content" style="width: 473px;height: 487px;z-index: 1;">
+        <h1 class="title" align="center">Iniciar de sesión</h1>
+      
+        <div class="form-group">
+            <div class="input-icons"> 
+                <i class="icon" ><img src="/assets/img/mail.svg"></i>
+                <input type="text"  style="border: 1px solid #787878;border-radius: 8px;height:56px;" [(ngModel)]="usuario.email" class="input-square padding-login" placeholder="Correo electrónico">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-icons"> 
+                <i class="icon" ><img src="/assets/img/Eyes.svg"></i>
+                <input type="password" style="border: 1px solid #787878;border-radius: 8px;height:56px;"   [(ngModel)]="usuario.password" class="input-square padding-login" placeholder="Contraseña">
+            </div>
+        </div>
+        
+    <div>
+            
+        </div>
+        <h4 class="color-rojo" *ngIf="error==1" >Complete todos los campos</h4>
+        <h4 class="color-rojo" *ngIf="error==2" >Credenciales invalidas</h4>
+
+        <button style="width: 335px !important;text-transform: uppercase;" class="btn-primary btn-block" (click)="LogIn()" >iniciar sesión <span *ngIf="loading" class="icon icon-refresh loader"></span> </button>
+        <div class="footer-session">
+            <p style="color:#ED1C24 ">¿Olvidaste tu contraseña? </p> 
+        </div>
+      
+    </div>
+      <img class="rectangle" src="assets/img/Rectangle1.svg" style="">
+</div>

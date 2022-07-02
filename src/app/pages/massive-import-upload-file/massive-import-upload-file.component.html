@@ -1,0 +1,62 @@
+<div>
+	<br><br>
+  	<div class="row">
+  		<div class="col-md-6" style="display: flex;justify-content: center;">
+  			<p class="success-download" >
+  				¡Planilla descargada!
+  			</p>
+  		</div>
+  		<div class="col-md-6" style="display: flex;justify-content: center;">
+  			<p class="back">Volver a Anuncios </p>
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-md-2">
+  		</div>
+  		<div class="col-md-6">
+  			<br>
+  			<p class="title-download" style="margin-left: 6px;">
+  				Ya puedes empezar a completar la planilla
+  			</p>
+  			
+  			<div class="card card-download-2" style="">
+  				<p class="text-download"><img src="assets/img/point-red.svg" class="position-point">El archivo export.csv ya está en tu computadora. Tienes tiempo para subirlo las 24 horas.</p>
+
+  				<p class="text-download"><img src="assets/img/point-red.svg" class="position-point">Podrás crear hasta 100 publicaciones por día.</p>
+  				
+          <div class="text-black-download" > ¿La descarga no comenzó automáticamente? 
+            <a href="assets/files/export.csv"> 
+              <span (click)="downloadCSV()" style="color: #ED1C24;text-decoration: inherit;">
+                Vuelve a intentarlo
+              </span> 
+            </a>
+          </div>
+  				
+          <p class="text-black-download" style="margin-top: 8px;"> ¿No tienes Microsoft excel? <span style="color: #ED1C24"> Descargalo aquí</span></p>
+
+          <a id="download-csv" href="assets/files/export.csv" style="display: none;"></a>
+  			</div>
+  			
+	      <div class="card card-download-2" >
+	        <div  (click)="selectFile()">
+            <div class="row">
+              <div class="col-md-1">&nbsp;&nbsp;
+                 <img src="assets/img/upload-icon.svg" style="margin-top: -15px;width: 53px;height: 53px;">
+              </div>
+              &nbsp;&nbsp;
+              <div class="col-md-6" style="padding-top:21px;">
+                <p class="download" >Subir planilla excel</p>
+              </div>
+            </div>
+	        </div>
+	      </div>
+        
+        <div *ngIf="upload">
+          <mat-progress-bar style="width: 127%;" mode="indeterminate"></mat-progress-bar>
+           <p class="download" > {{percentage}} completado </p>
+        </div>
+        
+        <input type="file" id="upload-file" (change)="uploadFile($event)" name="upload-file" accept=".csv" style="display: none;">  
+	    </div>
+  	</div>
+</div>
