@@ -26,14 +26,9 @@ export class DashboardComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-     
-   
-    
-    this.AdsService.GetBySource().then(res => {
-      this.ads = res.data
-    }).catch(err =>{
-      console.log(err)
-    })
+    this.getCountAdToday()
+    this.getBySource()
+    this.countImportToday()
   }
 
   ngAfterViewInit(){
@@ -48,6 +43,8 @@ export class DashboardComponent implements OnInit {
   ads :any;
   start : any;
   end:any;
+  countAdsToday:any = 0;
+  countAdsImportToday:any = 0;
 
   getDate($event : any,input : string){
     this.start = '';
@@ -62,12 +59,35 @@ export class DashboardComponent implements OnInit {
       this.filters.push({start : this.dateStart.split('-')[2]+'/'+this.dateStart.split('-')[1] , end :this.dateEnd.split('-')[2]+'/'+this.dateEnd.split('-')[1]})
       
       this.AdsService.GetBySourceDate(this.dateStart,this.dateEnd).then(res => {
-       
         this.ads = res.data
       }).catch(err =>{
         console.log(err)
       })
     }
+  }
+
+  getCountAdToday(){
+    this.AdsService.countAdsToday().then(res => {
+        this.countAdsToday = res.data
+      }).catch(err =>{
+        console.log(err)
+      })
+  }
+
+  countImportToday(){
+    this.AdsService.countAdsToday().then(res => {
+        this.countAdsImportToday = res.data
+      }).catch(err =>{
+        console.log(err)
+      })
+  }
+
+  getBySource(){
+     this.AdsService.GetBySource().then(res => {
+      this.ads = res.data
+    }).catch(err =>{
+      console.log(err)
+    })
   }
 }
   

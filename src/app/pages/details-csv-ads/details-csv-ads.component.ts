@@ -8,6 +8,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import * as $ from 'jquery';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertMessageComponent } from '../alert-message/alert-message.component';
+import { AdsDetailsComponent } from '../ads-details/ads-details.component';
+
 
 export interface AdsImport {
   title: any;
@@ -101,6 +103,12 @@ export class DetailsCsvAdsComponent implements OnInit {
     }).catch(err =>{
       console.log(err)
     })
+  }
+
+  showDetails(element:any){
+    this.dialog.open(AdsDetailsComponent, {
+      data : {ad : element, user : this.user} 
+    });
   }
 
   ApprovedRejected(status:any){

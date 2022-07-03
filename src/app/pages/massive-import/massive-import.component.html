@@ -18,25 +18,25 @@
 
         <div  style="display: flex;justify-content: center;">
            <div class="input-icons"> 
-              <select class="input-select" id="seller" >
-                <option>Tipo de vendedor</option>
-                <option>Vendedor ocasional</option>
-                <option>Vendedor profesional</option>
-                <option>Todos</option>
+              <select class="input-select" id="seller" (change)="getType($event)" >
+                <option value="">Tipo de vendedor</option>
+                <option value="ocassional">Vendedor ocasional</option>
+                <option value="professional">Vendedor profesional</option>
+                <option value="">Todos</option>
               </select>
                <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
             </div>
             <div class="input-icons">
-              <input class="input-date"  placeholder="Fecha" matInput [matDatepicker]="picker">
+              <input class="input-date"  placeholder="Fecha" (dateChange)="getDate($event)" matInput [matDatepicker]="picker">
               <mat-datepicker #picker></mat-datepicker>
               <i class="icon"  mat-raised-button (click)="picker.open()"><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
             </div>
             <div class="input-icons"> 
-              <select class="input-select" id="seller" >
-                <option>Ordenar Por</option>
-                <option>Aprobado</option>
-                <option>Rechazado</option>
-                <option>Pendiente</option>
+              <select class="input-select" id="seller" (change)="getSort($event)"  >
+                <option value="">Ordenar Por</option>
+                <option value="Aprobado">Aprobado</option>
+                <option value="Rechazado">Rechazado</option>
+                <option value="Pendiente">Pendiente</option>
               </select>
                <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
             </div>

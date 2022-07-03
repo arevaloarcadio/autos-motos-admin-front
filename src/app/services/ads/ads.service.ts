@@ -44,13 +44,37 @@ export class AdsService {
         return send;
     }
 
-    GetGroupByCsv(): Promise<any> {
-        const send = this.http.get(`${this.url}ads/groupByCsv`).toPromise()
+    GetGroupByCsv(type:any = null,date:any = null,sort:any = null): Promise<any> {
+        var filter = ''
+        
+        if(type != null){
+            filter += '/?type='+type
+        }
+        
+        if(date != null){
+            filter += filter == '' ? '/?date='+date : '&date='+date
+        }
+        
+        if(sort != null){
+             filter += filter == '' ? '/?sort='+sort : '&sort='+sort
+        }
+
+        const send = this.http.get(`${this.url}ads/groupByCsv${filter}`).toPromise()
         return send;
     }
 
     getAdById(ad_id:any): Promise<any> {
         const send = this.http.get(`${this.url}ads/${ad_id}`).toPromise()
+        return send;
+    }
+
+    countAdsToday(): Promise<any> {
+        const send = this.http.get(`${this.url}ads/countToday`).toPromise()
+        return send;
+    }
+
+    countImportToday(): Promise<any> {
+        const send = this.http.get(`${this.url}ads/countImportToday`).toPromise()
         return send;
     }
 

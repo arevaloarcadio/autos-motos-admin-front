@@ -8,6 +8,49 @@ http://ionicframework.com/docs/theming/ */
   width: 277px;
 }
 
+.title-details-ads{
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 600;
+font-size: 19px;
+line-height: 30px;
+/* identical to box height, or 158% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+/* Autos motos negro */
+
+color: #1C1C1C;
+
+}
+
+.type-details-ads{
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 600;
+font-size: 19px;
+line-height: 30px;
+/* identical to box height, or 158% */
+
+
+color: #000000;
+
+}
+
+
+.sub-title-details-ads{
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 161% */
+
+
+color: #000000;
+}
 .text-area-comment{
 font-family: 'Ubuntu';
 font-style: normal;

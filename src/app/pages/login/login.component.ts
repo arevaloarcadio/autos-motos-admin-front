@@ -4,6 +4,7 @@ import { Vacio, VacioU, SoloLetra, SoloNumero } from '../../../assets/script/gen
 import { Router} from '@angular/router';
 import user from 'src/app/services/user';
 import jwtToken from 'src/app/services/jwt-token';
+import * as $ from 'jquery'
 
 @Component({
     selector: 'app-login',
@@ -27,6 +28,17 @@ export class LoginComponent implements OnInit {
         email:null,
         password:null
     }   
+    show_password :boolean = false
+    
+    showPassword(){
+        this.show_password = !this.show_password
+
+        if(this.show_password){
+            $('#password').attr("type","text")
+        }else{
+            $('#password').attr("type","password")
+        }
+    }
 
     LogIn(){
         if(Vacio(this.usuario)){

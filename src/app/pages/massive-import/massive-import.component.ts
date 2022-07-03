@@ -46,15 +46,7 @@ export class MassiveImportComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.AdsService.GetGroupByCsv().then(res => {
-          res.data.forEach((res:any) =>{
-            res.created_at = new Date(res.created_at).toLocaleDateString(),
-            res.option = 'Ver Archivo'
-          })
-          this.dataSource = res.data
-        }).catch(err =>{
-          console.log(err)
-        })
+       this.getGroupByCsv()
     }
 
   redirect(path :any){
@@ -63,30 +55,39 @@ export class MassiveImportComponent implements OnInit {
   //ads = [];
   displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol', 'option'];
   dataSource = [];
-  
+  type:any = null
+  date:any = null
+  sort:any = null
   selection = new SelectionModel<PeriodicElement>(true, []);
 
   showFile(name:any,user_id:any){
     this.router.navigate(['admin/products-massive-import',{name, user_id}])
   }
-  /*
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
+
+  getDate($event:any){
+    this.date = new Date($event.target.value).toISOString().split('T')[0] 
+    this.getGroupByCsv()
+  }
+  getType($event:any){
+    this.type = $event.target.value
+    this.getGroupByCsv()
+  }
+  getSort($event:any){
+    this.sort = $event.target.value
+    this.getGroupByCsv()
   }
 
-  masterToggle() {
-    this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+  getGroupByCsv(){
+    console.log(this.type)
+    this.AdsService.GetGroupByCsv(this.type,this.date,this.sort).then(res => {
+      res.data.forEach((res:any) =>{
+        res.created_at = new Date(res.created_at).toLocaleDateString(),
+        res.option = 'Ver Archivo'
+      })
+      this.dataSource = res.data
+    }).catch(err =>{
+      console.log(err)
+    }) 
   }
-
-  checkboxLabel(row?: PeriodicElement): string {
-    if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
-    }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
-  }*/
 }
   

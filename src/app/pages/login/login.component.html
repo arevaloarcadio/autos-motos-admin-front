@@ -21,8 +21,8 @@
 
         <div class="form-group">
             <div class="input-icons"> 
-                <i class="icon" ><img src="/assets/img/Eyes.svg"></i>
-                <input type="password" style="border: 1px solid #787878;border-radius: 8px;height:56px;"   [(ngModel)]="usuario.password" class="input-square padding-login" placeholder="Contraseña">
+                <i class="icon" ><img  *ngIf="!show_password" (click)="showPassword()" src="/assets/img/Eyes.svg"><img  *ngIf="show_password" (click)="showPassword()" src="/assets/img/show.svg"></i>
+                <input type="password" style="border: 1px solid #787878;border-radius: 8px;height:56px;"   [(ngModel)]="usuario.password" id="password" class="input-square padding-login" placeholder="Contraseña">
             </div>
         </div>
         

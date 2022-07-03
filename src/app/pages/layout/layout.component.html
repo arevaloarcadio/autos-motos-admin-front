@@ -176,9 +176,17 @@
               <img src="assets/img/notification.svg">&nbsp;&nbsp;&nbsp;
               <img src="assets/img/user-icon-header.svg">&nbsp;&nbsp;&nbsp;
               
-             <p class="text-user-header" style="margin-top: 12px;">
+             <p class="text-user-header" style="margin-top: 12px;" [matMenuTriggerFor]="menu" >
                {{user.first_name }} {{user.last_name}}
              </p>
+
+        
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logout()" >
+            <span>Cerrar Sesión</span>
+          </button>
+        </mat-menu>  
+
             <!--
             <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link">
                 <svg class="c-icon">
