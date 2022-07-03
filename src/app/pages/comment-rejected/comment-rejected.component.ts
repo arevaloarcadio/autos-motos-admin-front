@@ -46,7 +46,9 @@ export class CommentRejectedComponent implements OnInit {
           console.log(err)
         })
       }
-      
+
+      this.ad_length = this.route.snapshot.queryParams["ad_length"] ?? null
+
       this.user_id = this.route.snapshot.paramMap.get("user_id");
       this.csv_ad_id = this.route.snapshot.paramMap.get("csv_ad_id");
 
@@ -62,6 +64,7 @@ export class CommentRejectedComponent implements OnInit {
   user_id : any = null;
   ad_id : any = null;
   ad : any = null;
+  ad_length : any = null;
   comment : any = null;
   loading : any = false
   redirect(path :any){
@@ -78,6 +81,24 @@ export class CommentRejectedComponent implements OnInit {
     this.comment = $('#comment').val()
     console.log(this.comment)
     this.AdsService.commentRejectAd(this.ad_id,this.comment).then((res:any) => {
+     // this.loading = false
+      this.dialog.open(AlertMessageComponent, {
+        data :  {message : '¡Mensaje enviado con éxito!', error : null , success : true}  ,
+      });
+    }).catch(err =>{
+      //this.loading = false
+      console.log(err)
+      this.dialog.open(AlertMessageComponent, {
+        data :  {message : '¡Error al enviar el mensaje', error : true , success : false}  ,
+      });
+    })
+  }
+
+   sendRejecteds(){
+    this.loading = true
+    this.comment = $('#comment').val()
+    
+    this.AdsService.commentRejectAds(this.csv_ad_id,this.comment).then((res:any) => {
      // this.loading = false
       this.dialog.open(AlertMessageComponent, {
         data :  {message : '¡Mensaje enviado con éxito!', error : null , success : true}  ,

@@ -87,4 +87,9 @@ export class AdsService {
         const send = this.http.post(`${this.url}ads/${ad_id}/rejected_comment`, {comment : comment}).toPromise()
         return send;
     }
+
+     commentRejectAds(csv_ad_id:any,comment:any): Promise<any> {
+        const send = this.http.post(`${this.url}ads/${csv_ad_id}/ads_rejected_comment`, {comment : comment}).toPromise()
+        return send;
+    }
 }

@@ -18,7 +18,8 @@
     </div>
   </div>
   <br>
-  <p class="title-comment">Anuncio</p>
+  <p class="title-comment" *ngIf="ad_id != null">Anuncio</p>
+  <p class="title-comment" *ngIf="ad_length != null">Anuncios <span style="color: #787878;">({{ad_length}})</span></p>
 
   <!--<label class="sub-title-table-ads" >Auto</label>-->
   <p class="title-table-ads">{{ad?.title}} </p>
@@ -29,7 +30,12 @@
   </textarea>
   <br>
   <br>
-  <button class="button-send-comment" (click)="sendRejected()">
+  <button   *ngIf="ad_id != null"  class="button-send-comment" (click)="sendRejected()">
+    ENVIAR
+     <span *ngIf="loading" class="icon icon-refresh loader"></span>
+  </button>
+
+  <button  *ngIf="ad_length != null" class="button-send-comment" (click)="sendRejecteds()">
     ENVIAR
      <span *ngIf="loading" class="icon icon-refresh loader"></span>
   </button>
