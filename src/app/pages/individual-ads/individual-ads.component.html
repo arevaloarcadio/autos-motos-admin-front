@@ -1,0 +1,158 @@
+<div>
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+       <p class="title-dashboard">Anuncios</p>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <div class="row" style="margin: 16px;" infinite-scroll  (scrolled)="onScrollDown($event)">
+      <div style="display: flex; overflow-x: auto;white-space: nowrap;">
+        
+         <div class="input-icons"> 
+              <select class="input-select" id="seller" (change)="getType($event)" >
+                <!--<option value="">Tipo de anuncio</option>-->
+                <option value="auto">Auto</option>
+                <option value="moto">Moto</option>
+                <option value="mobile_home">Caravanas</option>
+                <option value="truck">Camiones</option>
+                <option value="mechanic">Recambios</option>
+                <option value="shop">Talleres</option>
+                <option value="rental">Alquiler</option>
+              </select>
+              <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
+        </div>
+
+        <div class="input-icons filters">
+          <input class="input-date"  placeholder="Fecha" (dateChange)="getDate($event)" matInput [matDatepicker]="picker">
+          <mat-datepicker #picker></mat-datepicker>
+          <i class="icon"  mat-raised-button (click)="picker.open()"><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
+        </div>
+
+        <div class="input-icons"> 
+          <select class="input-select" id="seller" (model)="sort" (change)="getSort($event)"  >
+            <option value="0">Pendiente</option>
+            <option value="10">Aprobado</option>
+            <option value="20">Rechazado</option>
+          </select>
+          <i class="icon"><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
+        </div>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         
+        <button style="float: right;margin-right: 10px;margin-top: 14px;" id="reject" class="button-reject" [attr.disabled]="button_disabled" (click)="ApprovedRejected('rejected')">
+          Rechazar
+        </button>
+        <button style="float: right;margin-right: 10px;margin-top: 14px;" id="accept" class="button-accept"  disabled="true" (click)="ApprovedRejected('approved')" >
+          Aprobar
+        </button>
+
+      </div>
+    </div>
+   
+    
+  <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Usuario </th>
+      <td mat-cell *matCellDef="let element" class="td-table-user"> 
+        <img src="assets/img/user-icon-header.svg">&nbsp;&nbsp; {{element.user.first_name}} {{element.user.last_name}} 
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Tipo de publicación </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.auto_ad != null">Auto</span>
+        <span *ngIf="element.mechanic_ad != null">Recambios</span>
+        <span *ngIf="element.mobile_home_ad != null">Caravana</span>
+        <span *ngIf="element.moto_ad != null">Moto</span>
+        <span *ngIf="element.rental_ad != null">Alquiler</span>
+        <span *ngIf="element.shop_ad != null">Talleres</span>
+        <span *ngIf="element.truck_ad != null">Camiones</span>
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="make">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Título del Anuncio </th>
+      <td mat-cell *matCellDef="let element"> 
+        
+        {{element.title}} 
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Fecha </th>
+      <td mat-cell *matCellDef="let element"> 
+        <span *ngIf="element.auto_ad != null"> {{element.auto_ad.created_at}}</span>
+        <span *ngIf="element.mechanic_ad != null">{{element.mechanic_ad.created_at}}</span>
+        <span *ngIf="element.mobile_home_ad != null">{{element.mobile_home_ad.created_at}}</span>
+        <span *ngIf="element.moto_ad != null">{{element.moto_ad.created_at}}</span>
+        <span *ngIf="element.rental_ad != null">{{element.rental_ad.created_at}}</span>
+        <span *ngIf="element.shop_ad != null">{{element.shop_ad.created_at}}</span>
+        <span *ngIf="element.truck_ad != null">{{element.truck_ad.created_at}}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Estado </th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="element.status == 0" > Pendiente </span>
+        <div *ngIf="element.status == 10" class="approved-td">Aprobado </div>
+        <div *ngIf="element.status == 20" class="reject-td">Rechazado</div>  
+      </td>
+    </ng-container>
+
+     <ng-container matColumnDef="option">
+         <th mat-header-cell *matHeaderCellDef class="th-table"> Opciones </th>
+        <td mat-cell *matCellDef="let element"> 
+
+        <button mat-icon-button style="background: transparent;float: right;" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="showDetails(element)" >
+            <span>Ver detalles</span>
+          </button>
+          <button mat-menu-item  (click)="ApprovedRejected('approved')">
+            <span>Aprobar</span>
+          </button>
+          <button mat-menu-item  (click)="ApprovedRejected('rejected')">
+            <span>Rechazar</span>
+          </button>
+        </mat-menu>  
+        
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"(click)="selection.toggle(row)">
+
+    </tr>
+  </table>
+  </div>
+</div>

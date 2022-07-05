@@ -18,6 +18,44 @@ export class AdsService {
         return send;
     }
 
+    GetAdIndividual(type:any = null,date:any = null,sort:any = null): Promise<any> {
+        var filter = ''
+        
+        if(type != null){
+            filter += '?filters[type]='+type
+        }
+        
+        if(date != null){
+            filter += filter == '' ? '/?filters[created_at]='+date : '&filters[created_at]='+date
+        }
+        
+        if(sort != null){
+             filter += filter == '' ? '/?filters[status]='+sort : '&filters[status]='+sort
+        }
+
+        const send = this.http.get(`${this.url}ads${filter}`).toPromise()
+        return send;
+    }
+
+    GetAdNextPageUrl(next_url:any,type:any = null,date:any = null,sort:any = null): Promise<any> {
+        var filter = ''
+        
+        if(type != null){
+            filter += '&filters[type]='+type
+        }
+        
+        if(date != null){
+            filter +=  '&filters[created_at]='+date
+        }
+        
+        if(sort != null){
+             filter += '&filters[status]='+sort
+        }
+
+        const send = this.http.get(`${next_url}${filter}`).toPromise()
+        return send;
+    }
+
     GetUltimos(): Promise<any> {
         const send = this.http.get(`${this.url}ads?orderBy=id&orderDirection=desc&per_page=15`).toPromise()
         return send;

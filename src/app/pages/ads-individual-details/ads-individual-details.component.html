@@ -1,0 +1,61 @@
+<div style="width: 419px;">
+<p class="title-details-ads">Detalles del anuncio</p>
+<br>
+<br>
+<p class="sub-title-details-ads">Tipo de publicacion</p>
+<p class="type-details-ads" *ngIf="data.ad.auto_ad != null">Auto </p>
+<p class="type-details-ads" *ngIf="data.ad.mechanic_ad != null"> Talleres</p>
+<p class="type-details-ads" *ngIf="data.ad.mobile_home_ad != null">Caravana </p>
+<p class="type-details-ads" *ngIf="data.ad.moto_ad != null">Moto </p>
+<p class="type-details-ads" *ngIf="data.ad.rental_ad != null">Alquiler </p>
+<p class="type-details-ads" *ngIf="data.ad.shop_ad != null">Recambios </p>
+<p class="type-details-ads" *ngIf="data.ad.truck_ad != null">Camiones </p>
+
+
+<p class="sub-title-details-ads" *ngIf="data.ad.images.length!=0">Imagenes</p>
+<div style="display: flex; overflow-x: auto;white-space: nowrap;">
+	<div class="photo" *ngFor="let item of data?.ad.images">
+        <img style="width: 82px;height: 74px;border-radius: 6px;" [src]="'https://cdn.autosmotos.es/'+item.path" alt="">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+</div>
+<br>
+
+<p class="sub-title-details-ads">Título</p>
+<p class="type-details-ads">{{data.ad.title}}</p>
+<div *ngIf="data.ad.auto_ad != null">
+	<p class="sub-title-details-ads" >Precio</p>
+	<p class="type-details-ads">{{data.ad.auto_ad.price}}</p>
+</div>
+
+<div *ngIf="data.ad.mobile_home_ad != null">
+	<p class="sub-title-details-ads">Precio</p>
+	<p class="type-details-ads">{{data.ad.mobile_home_ad.price}}</p>
+</div>
+
+<div *ngIf="data.ad.shop_ad != null">
+	<p class="sub-title-details-ads">Precio</p>
+	<p class="type-details-ads">{{data.ad.shop_ad.price}}</p>
+</div>
+
+<div *ngIf="data.ad.moto_ad != null">
+	<p class="sub-title-details-ads">Precio</p>
+	<p class="type-details-ads">{{data.ad.moto_ad.price}}</p>
+</div>
+
+<div *ngIf="data.ad.truck_ad != null">
+	<p class="sub-title-details-ads">Precio</p>
+	<p class="type-details-ads">{{data.ad.truck_ad.price}}</p>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<p class="sub-title-details-ads">Teléfono</p>
+		<p class="type-details-ads">{{data?.user?.mobile_number}} </p>
+	</div>
+	<div class="col-md-6">
+		<p class="sub-title-details-ads">WhatsApp</p>
+		<p class="type-details-ads"> {{data?.user?.whatsapp_number}} </p>
+	</div>
+</div>
+</div>

@@ -8,6 +8,7 @@ import { MassiveImportUploadComponent } from '../massive-import-upload/massive-i
 import { MassiveImportUploadFileComponent } from '../massive-import-upload-file/massive-import-upload-file.component';
 import { DetailsCsvAdsComponent } from '../details-csv-ads/details-csv-ads.component';
 import { CommentRejectedComponent } from '../comment-rejected/comment-rejected.component';
+import { IndividualAdsComponent } from '../individual-ads/individual-ads.component';
 
 const routes: Routes = [
   {
@@ -41,8 +42,11 @@ const routes: Routes = [
       {
         path: 'products-massive-import-upload-file',
         component: MassiveImportUploadFileComponent
+      },
+      {
+        path: 'products-individual-ads',
+        component: IndividualAdsComponent
       }
-
     ]
   },
 ];

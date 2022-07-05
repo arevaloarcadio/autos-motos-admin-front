@@ -44,16 +44,16 @@
                   [style.display]="accordionItem.expanded ? '' : 'none'"
                   [attr.id]="'accordion-body-1'"
                   [attr.aria-labelledby]="'accordion-header-1'" style="color: #787878">
-                    <div  class="item-menu-acordion">
+                    <div  class="item-menu-acordion" >
                       <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="3" cy="3.75293" r="3" fill="#ED1C24"/>
                       </svg>
                       &nbsp;
                       Todos los productos
                     </div>
-                    <div class="item-menu-acordion">
+                    <div class="item-menu-acordion"  [ngClass]="route.url === '/admin/products-individual-ads' ? 'active' : ''" (click)="redirect('admin/products-individual-ads')">
                       <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="3" cy="3.75293" r="3" fill="#ED1C24"/>
+                        <circle cx="3" cy="3.75293" r="3" [attr.fill]="route.url === '/admin/products-individual-ads' ? '#FFFFFF' : '#ED1C24'"/>
                       </svg>
                       &nbsp;
                       Anuncios individuales
