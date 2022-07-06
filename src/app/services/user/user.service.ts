@@ -45,4 +45,34 @@ export class UserService {
         return send;
     }
 
+    getUsers(type =null ,date_from =null,date_to =null,status =null){
+
+        var filter = ''
+        
+        if(type != null){
+            filter += '?filters[type]='+type
+        }
+        
+        if(date_from != null){
+            filter += filter == '' ? '/?dateStart='+date_from : '&dateStart='+date_from
+        }
+
+        if(date_to != null){
+            filter += filter == '' ? '/?dateEnd='+date_to : '&dateEnd='+date_to
+        }
+        
+        
+        if(status != null){
+             filter += filter == '' ? '/?filters[status]='+status : '&filters[status]='+status
+        }
+
+        const send = this.http.get(`${this.url}users${filter}`).toPromise()
+        return send;
+    }
+
+
+    setStatusUser(status:any,user_id:any){
+        const send = this.http.post(`${this.url}users/${user_id}/status`,{status:status}).toPromise()
+        return send;
+    }
 }

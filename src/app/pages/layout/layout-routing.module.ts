@@ -9,6 +9,7 @@ import { MassiveImportUploadFileComponent } from '../massive-import-upload-file/
 import { DetailsCsvAdsComponent } from '../details-csv-ads/details-csv-ads.component';
 import { CommentRejectedComponent } from '../comment-rejected/comment-rejected.component';
 import { IndividualAdsComponent } from '../individual-ads/individual-ads.component';
+import { UsersTableComponent } from '../users-table/users-table.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'products-individual-ads',
         component: IndividualAdsComponent
+      },
+      {
+        path: 'users',
+        component: UsersTableComponent
       }
     ]
   },

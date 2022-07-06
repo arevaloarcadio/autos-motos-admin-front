@@ -24,6 +24,7 @@ import { MassiveImportUploadFileComponent } from '../massive-import-upload-file/
 import { AdsIndividualDetailsComponent } from '../ads-individual-details/ads-individual-details.component';
 import { DetailsCsvAdsComponent } from '../details-csv-ads/details-csv-ads.component';
 import { CommentRejectedComponent } from '../comment-rejected/comment-rejected.component';
+import { UsersTableComponent } from '../users-table/users-table.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -46,7 +47,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AlertMessageComponent,
     DetailsCsvAdsComponent,
     AdsIndividualDetailsComponent,
-    CommentRejectedComponent
+    CommentRejectedComponent,
+    UsersTableComponent
   ],
   imports: [
     LayoutRoutingModule,
