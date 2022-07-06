@@ -20,6 +20,7 @@ import { InicioComponent } from './pages/seller/inicio/inicio.component';*/
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,

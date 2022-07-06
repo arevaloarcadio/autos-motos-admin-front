@@ -131,6 +131,7 @@ export class UsersTableComponent implements OnInit {
     this.UserService.getUsers(this.type,this.dateStart,this.dateEnd,this.status).then((res:any)  => {
       console.log(res)
       this.dataSource = new MatTableDataSource<UserImport>(res.data.data);
+      this.next_page_url =  res.data.next_page_url == null ? this.end = true : res.data.next_page_url;
     }).catch(err =>{
       console.log(err)
     })
@@ -154,10 +155,17 @@ export class UsersTableComponent implements OnInit {
 
   onScrollDown($event :any){
     var scroll : any = $("body");
+
+    
     //console.log(scroll[0].scrollHeight +"=="+ Number($event.currentScrollPosition).toFixed())
     //if(scroll[0].scrollHeight == Number($event.currentScrollPosition).toFixed()){
       if(!this.end){
-       
+        this.UserService.GetAdNextPageUrl(this.next_page_url,this.type,this.dateStart,this.dateEnd,this.status)
+        .then(res => {
+          this.getUsers()
+        }).catch(err =>{
+          console.log(err)
+        })
       }
     //} 
   }

@@ -26,11 +26,11 @@ export class AdsService {
         }
         
         if(date != null){
-            filter += filter == '' ? '/?filters[created_at]='+date : '&filters[created_at]='+date
+            filter += filter == '' ? '?filters[created_at]='+date : '&filters[created_at]='+date
         }
         
         if(sort != null){
-             filter += filter == '' ? '/?filters[status]='+sort : '&filters[status]='+sort
+             filter += filter == '' ? '?filters[status]='+sort : '&filters[status]='+sort
         }
 
         const send = this.http.get(`${this.url}ads${filter}`).toPromise()
