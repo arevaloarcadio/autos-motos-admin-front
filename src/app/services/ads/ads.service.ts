@@ -121,13 +121,23 @@ export class AdsService {
         return send;
     }
 
+    acceptRejectAds(status:any,ad_ids:any[]): Promise<any> {
+        const send = this.http.post(`${this.url}ads/${status}/approved_rejected`, {ad_ids : ad_ids, status : status}).toPromise()
+        return send;
+    }
+
     commentRejectAd(ad_id:any,comment:any): Promise<any> {
         const send = this.http.post(`${this.url}ads/${ad_id}/rejected_comment`, {comment : comment}).toPromise()
         return send;
     }
 
-     commentRejectAds(csv_ad_id:any,comment:any): Promise<any> {
+    commentRejectAds(csv_ad_id:any,comment:any): Promise<any> {
         const send = this.http.post(`${this.url}ads/${csv_ad_id}/ads_rejected_comment`, {comment : comment}).toPromise()
+        return send;
+    }
+
+    commentRejectAdsIndividual(ad_ids:any,comment:any): Promise<any> {
+        const send = this.http.post(`${this.url}ads/rejected_comment_individual_ads`, {comment : comment, ad_ids:ad_ids}).toPromise()
         return send;
     }
 }

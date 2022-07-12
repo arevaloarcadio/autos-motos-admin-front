@@ -23,10 +23,10 @@ import '../../../assets/script/coreui-utils.js'
 
 @Component({
     selector: 'app-comment-rejected',
-    templateUrl: './comment-rejected.component.html',
-    styleUrls: ['./comment-rejected.component.scss'],
+    templateUrl: './comment-rejected-individual.component.html',
+    styleUrls: ['./comment-rejected-individual.component.scss'],
 })
-export class CommentRejectedComponent implements OnInit {
+export class CommentRejectedIndividualComponent implements OnInit {
 
     constructor(
         private AdsService:AdsService,
@@ -50,7 +50,6 @@ export class CommentRejectedComponent implements OnInit {
       this.ad_length = this.route.snapshot.queryParams["ad_length"] ?? null
 
       this.user_id = this.route.snapshot.paramMap.get("user_id");
-      
       this.csv_ad_id = this.route.snapshot.paramMap.get("csv_ad_id");
 
       this.UserService.getUserById(this.user_id).then((res:any) => {

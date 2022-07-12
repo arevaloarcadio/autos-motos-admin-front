@@ -75,7 +75,7 @@ export class DashboardComponent implements OnInit {
   }
 
   countImportToday(){
-    this.AdsService.countAdsToday().then(res => {
+    this.AdsService.countImportToday().then(res => {
         this.countAdsImportToday = res.data
       }).catch(err =>{
         console.log(err)

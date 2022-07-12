@@ -49,6 +49,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AdsIndividualDetailsComponent,
     CommentRejectedComponent,
     UsersTableComponent
+    
   ],
   imports: [
     LayoutRoutingModule,
