@@ -57,13 +57,21 @@ export class DashboardComponent implements OnInit {
     if(this.dateStart != null && this.dateEnd != null){
       $event.target.value = ''
       this.filters.push({start : this.dateStart.split('-')[2]+'/'+this.dateStart.split('-')[1] , end :this.dateEnd.split('-')[2]+'/'+this.dateEnd.split('-')[1]})
-      
+      console.log('este es el filtro',this.filters)
       this.AdsService.GetBySourceDate(this.dateStart,this.dateEnd).then(res => {
         this.ads = res.data
       }).catch(err =>{
         console.log(err)
       })
     }
+  }
+
+  exitFilter(id: any){
+    console.log('filtro',id)
+    this.filters.splice(this.filters.indexOf(id), 1);
+    this.getCountAdToday()
+        this.getBySource()
+    this.countImportToday()
   }
 
   getCountAdToday(){

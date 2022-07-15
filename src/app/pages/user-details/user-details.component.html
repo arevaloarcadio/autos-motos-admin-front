@@ -1,0 +1,106 @@
+<div class="contenido">
+    <br>
+    <div class="row" >
+      <div class="col-md-8">
+        <img src="assets/img/arrow.svg" routerLink="/admin/users" style="position: absolute;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <p class="title-dashboard" style="margin-left: 35px;margin-top: -40px;">Detalles</p>
+      </div>
+    </div>
+    <br>
+    <!--PRIMER CARD-->
+    <div class="card">
+      <div class="row" style="margin: 16px;">
+        <div class="col-md-12" style="    margin-bottom: 30px;">
+            <label><b>Información de usuario</b></label>
+        </div>
+        <br>
+        <div class="col-md-12" style="text-align: center;margin-bottom:20px">
+            <h2><b>{{datosUsuario.first_name}}</b></h2>
+        </div>
+
+
+        <div class="col-md-4">
+            <label><b>Mail:</b></label>{{datosUsuario?.email}}
+        </div>
+
+        <div class="col-md-4">
+            <label><b>Dirección:</b></label>{{datosUsuario?.address}}
+        </div>
+
+        <div class="col-md-4">
+            <label><b>Ciudad:</b></label>{{datosUsuario?.city}}
+        </div>
+
+
+        <div class="col-md-4">
+            <label><b>WhatsApp:</b></label>{{datosUsuario?.whatsapp_number}}
+        </div>
+
+        <div class="col-md-4">
+            <label><b>Número de teléfono:</b></label>{{datosUsuario?.mobile_number}}
+        </div>
+
+        <div class="col-md-4">
+            <label><b>País:</b></label>{{datosUsuario?.country}}
+        </div>
+   
+      
+     
+      </div>
+     
+  
+    </div>
+
+
+       <!--segundo CARD-->
+       <div class="card">
+        <div class="row" style="margin: 16px;">
+          <div class="col-md-12" style="    margin-bottom: 30px;">
+              <label><b>Información de la tienda</b></label>
+          </div>
+        
+<br><br>
+          <div class="col-md-4">
+              <label><b>Productos publicados:</b></label>
+          </div>
+  
+          <div class="col-md-4">
+              <label><b>Servicios publicados:</b></label>
+          </div>
+  
+          <div class="col-md-4">
+              <label><b>Total ventas:</b></label>
+          </div>
+  
+  
+         
+     
+        
+       
+        </div>
+       
+    
+      </div>
+
+
+            <!--tercer CARD-->
+            <div class="card">
+                <div class="row" style="margin: 16px;">
+                  <div class="col-md-12" style="    margin-bottom: 30px;">
+                      <label><b>Historial de pagos</b></label>
+                  </div>
+                
+        <br><br>
+              
+          
+          
+                 
+             
+                
+               
+                </div>
+               
+            
+              </div>
+
+  </div>

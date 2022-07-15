@@ -1,8 +1,8 @@
-<div>
+<div class="contenido">
   <br>
    <div class="row">
     <div class="col-md-8" >
-      <img src="assets/img/arrow.svg" (click)="goBackPage()" style="position: absolute;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="assets/img/arrow.svg" routerLink="/admin/products-individual-ads"style="position: absolute;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <p class="title-dashboard" style="margin-left: 30px;margin-top: -39px;">Anuncio rechazado</p>
     </div>
   </div>
@@ -26,12 +26,13 @@
   <p class="title-table-ads">{{ad?.title}} </p>
   
   <p class="title-comment">Comentario</p>
+  
   <textarea class="text-area-comment" id="comment"  style="padding-left: 20px;padding-top: 13px;" placeholder="Escribe un comentario">
 
   </textarea>
   <br>
   <br>
-  <button   *ngIf="ad_id != null"  class="button-send-comment" (click)="sendRejected()">
+  <button   class="button-send-comment" (click)="sendRejected()">
     ENVIAR
      <span *ngIf="loading" class="icon icon-refresh loader"></span>
   </button>

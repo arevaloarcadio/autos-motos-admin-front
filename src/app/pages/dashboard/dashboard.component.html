@@ -1,11 +1,17 @@
-<div>
+<div class="contenido">
   <p class="title-dashboard">Dashboard</p>
   <br>
   <div class="row">
     <div class="col-md-6 panel-red" style="box-shadow: 0px 0px 9px rgba(102, 102, 102, 0.3);">
       <div class="panel-red">
         <p class="text-panel-red">Total de anuncios publicados hoy</p>
-        <p class="text-panel-red-num">{{countAdsImportToday}} </p>
+        <div class="row">
+          <p class="text-panel-red-num col-md-6" style="margin-bottom: auto;">{{countAdsImportToday? countAdsImportToday : '0'}} </p>
+          <p class="text-panel-red-num col-md-6">
+            <img src="../../../assets/img/papel.png">
+          </p>
+        </div>
+       
       </div>
         
     </div>
@@ -14,7 +20,10 @@
     <div class="col-md-6">
       <div class="panel-white" style="box-shadow: 0px 0px 9px rgba(102, 102, 102, 0.3);">
         <p class="text-panel-white">Total de productos importados hoy</p>
-      <p class="text-panel-white-num">{{countAdsToday}} </p>
+        <div class="row">
+          <p class="text-panel-white-num col-md-6" style="margin-bottom: auto;">{{countAdsToday? countAdsToday : '0'}} </p>
+          <p class="text-panel-red-num col-md-6"><img src="../../../assets/img/euro.png"></p>
+        </div>
       </div>
       
     </div>
@@ -45,7 +54,7 @@
     <div class="col-md-6" >
       <div class="row">
         <div class="col-md-3" style="padding-top: 22px;"><p class="text-filter" >Filtro aplicado:</p> </div>
-       <div class="col-md-6" style="padding-top: 20px;"><span class="span-filter" *ngFor="let filter of filters"> {{filter.start}} a {{filter.end}} <img src="assets/img/close-filter.svg" id="close-filter"> </span>  </div>
+       <div class="col-md-6" style="padding-top: 20px;"><span class="span-filter" *ngFor="let filter of filters; let indx = index"> {{filter.start}} a {{filter.end}} <img src="assets/img/close-filter.svg" (click)="exitFilter(indx)" id="close-filter"> </span>  </div>
       </div>
     </div>
   </div>
@@ -53,8 +62,8 @@
   <div class="row">
     <div *ngFor="let item of ads" class="col-md-4"> 
       <div class="card-ads">
-        <p class="title-card-ads">{{item?.source}}</p> 
-        <p class="count-card-ads">{{item?.count}}</p> 
+        <p class="title-card-ads" style="font-weight: 700;">{{item?.source}}</p> 
+        <p class="count-card-ads" style="font-weight: 700;">{{item?.count}}</p> 
         <p class="imported-ads"> <img src="assets/img/archives.svg"> Anuncios importados</p> 
       </div> 
     </div>

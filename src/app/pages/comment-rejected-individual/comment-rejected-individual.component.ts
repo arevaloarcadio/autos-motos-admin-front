@@ -79,19 +79,19 @@ export class CommentRejectedIndividualComponent implements OnInit {
   sendRejected(){
     this.loading = true
     this.comment = $('#comment').val()
-    console.log(this.comment)
-    this.AdsService.commentRejectAd(this.ad_id,this.comment).then((res:any) => {
-     // this.loading = false
-      this.dialog.open(AlertMessageComponent, {
-        data :  {message : '¡Mensaje enviado con éxito!', error : null , success : true}  ,
-      });
-    }).catch(err =>{
-      //this.loading = false
-      console.log(err)
-      this.dialog.open(AlertMessageComponent, {
-        data :  {message : '¡Error al enviar el mensaje', error : true , success : false}  ,
-      });
-    })
+    // console.log(this.comment)
+    // this.AdsService.commentRejectAd(this.ad_id,this.comment).subscribe((res:any) => {
+    //  // this.loading = false
+    //   this.dialog.open(AlertMessageComponent, {
+    //     data :  {message : '¡Mensaje enviado con éxito!', error : null , success : true}  ,
+    //   });
+    // }).catch(err =>{
+    //   //this.loading = false
+    //   console.log(err)
+    //   this.dialog.open(AlertMessageComponent, {
+    //     data :  {message : '¡Error al enviar el mensaje', error : true , success : false}  ,
+    //   });
+    // })
   }
 
    sendRejecteds(){

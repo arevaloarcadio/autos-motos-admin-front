@@ -11,6 +11,8 @@ import { CommentRejectedComponent } from '../comment-rejected/comment-rejected.c
 import { CommentRejectedIndividualComponent } from '../comment-rejected-individual/comment-rejected-individual.component';
 import { IndividualAdsComponent } from '../individual-ads/individual-ads.component';
 import { UsersTableComponent } from '../users-table/users-table.component';
+import { UserFormComponent } from '../user-form/user-form.component';
+import { UserDetailsComponent } from '../user-details/user-details.component';
 
 const routes: Routes = [
   {
@@ -52,7 +54,15 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersTableComponent
-      }
+      },
+      {
+        path: 'user/edit/:user_id',
+        component: UserFormComponent
+      },
+      {
+        path: 'user/detail/:user_id',
+        component: UserDetailsComponent
+      },
     ]
   },
 ];

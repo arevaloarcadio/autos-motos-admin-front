@@ -1,0 +1,87 @@
+<div class="contenido">
+    <br>
+    <div class="row" >
+      <div class="col-md-8">
+        <img src="assets/img/arrow.svg" routerLink="/admin/users" style="position: absolute;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <p class="title-dashboard" style="margin-left: 35px;margin-top: -40px;">Editar</p>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="row" style="margin: 16px;">
+        <h2>{{datosUsuario.first_name}}</h2>
+        <h4>{{datosUsuario.email}}</h4>
+        <form [formGroup]="formD">
+
+            <div class="form-row align-items-end" >
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="first_name">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mail</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="email">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ciudad</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="city">
+                      </mat-form-field>
+               
+                </div>
+
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Whatsapp</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="whatsapp_number">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Teléfono</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="mobile_number">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Pais</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="country">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="address">
+                      </mat-form-field>
+               
+                </div>
+     
+        
+    
+
+              
+              </div>
+
+      
+
+        </form>
+     
+      </div>
+     
+  
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" style="    text-align: right;">
+        <button [disabled]="formD.invalid" style="    border-radius: 20px;background: #ED1C24;color:white" mat-raised-button (click)="save()" >
+            <span>Guardar Cambios</span>
+        </button>
+    </div>
+  </div>

@@ -92,6 +92,7 @@ export class IndividualAdsComponent implements OnInit {
           message : status  === 'approved' ? '¡Anuncios aprobados!' : '¡Anuncios rechazado!', 
           ad_accepted : status  === 'approved' ? true : null, 
           ad_rejected : status  === 'rejected' ? true : null, 
+          anuncios :ad_ids
         }
       });
       this.getAds()
@@ -129,7 +130,7 @@ export class IndividualAdsComponent implements OnInit {
   }
 
   getAds(){
-    this.AdsService.GetAdIndividual(this.type,this.date,this.sort).then((res:any) => {
+    this.AdsService.GetAdIndividual(this.type,this.date,this.sort).subscribe((res:any) => {
       
       res.data.data.forEach((ad:any)  =>{
         if(ad.auto_ad) ad.auto_ad.created_at = new Date(ad.auto_ad.created_at).toLocaleDateString() 
@@ -144,8 +145,6 @@ export class IndividualAdsComponent implements OnInit {
       this.data = res.data.data
       this.dataSource = new MatTableDataSource<AdsImport>(this.data);
       this.next_page_url = res.data.next_page_url
-    }).catch((err:any) =>{
-      console.log(err)
     })
   }
 

@@ -24,6 +24,8 @@ export class AlertMessageComponent {
   ad_individual  :any =null
 
   ngOnInit(): void {
+
+    console.log('anuncios rechazados',this.data.anuncios)
     
     if(this.data.csv_ad_id){
       this.csv_ad_id = this.data.csv_ad_id
@@ -78,9 +80,11 @@ export class AlertMessageComponent {
     }
     
     if(this.ad_id){
-        this.router.navigate(['admin/comments-rejected/'+csv_ad_id+'/'+user_id],{queryParams: {ad_id: this.ad_id}})
+      console.log('entramos en el primero')
+        this.router.navigate(['admin/comments-rejected/'+csv_ad_id+'/'+user_id],{queryParams: {data:this.data.anuncios}})
     }else{
-       this.router.navigate(['admin/comments-rejected/'+csv_ad_id+'/'+user_id],{queryParams: {ad_length: this.ad_length}})
+      console.log('entramos en el segundo')
+       this.router.navigate(['admin/comments-rejected/'+csv_ad_id+'/'+user_id],{queryParams: {data:this.data.anuncios}})
     }
   
 

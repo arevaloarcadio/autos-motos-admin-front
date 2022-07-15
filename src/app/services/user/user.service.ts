@@ -45,6 +45,16 @@ export class UserService {
         return send;
     }
 
+    show(index: number) {
+        return this.http.get(`${this.url}users/${index}`);
+      }
+
+      
+    update(data: any, id: any): any {
+
+        return this.http.post(`${this.url}users/${id}`,data );
+    }
+
     getUsers(type =null ,date_from =null,date_to =null,status =null){
 
         var filter = ''

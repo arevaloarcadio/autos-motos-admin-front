@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,12 @@ export class AdsService {
         return send;
     }
 
-    GetAdIndividual(type:any = null,date:any = null,sort:any = null): Promise<any> {
+    GetAdIndividual(type:any = null,date:any = null,sort:any = null): Observable<any> {
+
+        let headers = {
+            'Content-Type': 'application/json'
+        };
+
         var filter = ''
         
         if(type != null){
@@ -32,10 +38,14 @@ export class AdsService {
         if(sort != null){
              filter += filter == '' ? '?filters[status]='+sort : '&filters[status]='+sort
         }
-
-        const send = this.http.get(`${this.url}ads${filter}`).toPromise()
-        return send;
+        return this.http.get<any[]>(`${this.url}ads${filter}`,{headers});
+        // const send = this.http.get(`${this.url}ads${filter}`).toPromise()
+        // return send;
     }
+
+ 
+ 
+
 
     GetAdNextPageUrl(next_url:any,type:any = null,date:any = null,sort:any = null): Promise<any> {
         var filter = ''
@@ -55,6 +65,8 @@ export class AdsService {
         const send = this.http.get(`${next_url}${filter}`).toPromise()
         return send;
     }
+
+
 
     GetUltimos(): Promise<any> {
         const send = this.http.get(`${this.url}ads?orderBy=id&orderDirection=desc&per_page=15`).toPromise()
@@ -126,10 +138,16 @@ export class AdsService {
         return send;
     }
 
-    commentRejectAd(ad_id:any,comment:any): Promise<any> {
-        const send = this.http.post(`${this.url}ads/${ad_id}/rejected_comment`, {comment : comment}).toPromise()
-        return send;
+    commentRejectAd(data:any) {
+        // const send = this.http.post(`${this.url}ads/${ad_id}/rejected_comment`, {comment : comment}).toPromise()
+        return this.http.post(`${this.url}ads/rejected_comment_individual_ads`,data );
+        // return send;
     }
+
+    // update(data: any, id: any): any {
+
+    //     return this.http.post(`${this.url}users/${id}`,data );
+    // }
 
     commentRejectAds(csv_ad_id:any,comment:any): Promise<any> {
         const send = this.http.post(`${this.url}ads/${csv_ad_id}/ads_rejected_comment`, {comment : comment}).toPromise()

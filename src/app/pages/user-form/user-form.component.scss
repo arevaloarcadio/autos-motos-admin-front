@@ -1,0 +1,51 @@
+::ng-deep .mat-checkbox-checked.mat-accent {
+    .mat-checkbox-ripple .mat-ripple-element {
+        background-color:  #ED1C24 !important;
+    }
+
+    .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+        background-color:  #ED1C24;
+     }
+}
+
+::ng-deep .mat-checkbox.mat-accent {
+    .mat-checkbox-ripple .mat-ripple-element {
+        background-color: #ED1C24 !important;
+    }
+}
+
+
+.container-aproved{
+	background: #00CB08;
+	border-radius: 6px;
+	width: 115px;
+	height: 44px;
+	color: #fff;   
+	padding-left: 12px;
+    padding-top: 9px;
+}
+
+.container-rejected{
+	background: #ED1C24;
+	border-radius: 6px;
+	width: 115px;
+	height: 44px;
+	color: #fff;   
+	padding-left: 12px;
+    padding-top: 9px;
+}
+
+.container-pending{
+	background: #DEE211;
+	border-radius: 6px;
+	width: 115px;
+	height: 44px;
+	color: #fff;   
+	padding-left: 12px;
+    padding-top: 9px;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 12px;
+    width: 100%;
+  }
