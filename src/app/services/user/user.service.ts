@@ -55,7 +55,7 @@ export class UserService {
         return this.http.post(`${this.url}users/${id}`,data );
     }
 
-    getUsers(type =null ,date_from =null,date_to =null,status =null){
+    getUsers(type =null ,date_from =null,date_to =null,status =null,offset=null,params?:string){
 
         var filter = ''
         
@@ -76,11 +76,16 @@ export class UserService {
              filter += filter == '' ? '?filters[status]='+status : '&filters[status]='+status
         }
 
+        if(params){
+            
+            filter += filter == '' ? '?page='+params : '&page='+params
+        }
+
         const send = this.http.get(`${this.url}users${filter}`).toPromise()
         return send;
     }
 
-    GetAdNextPageUrl(next_url:any,type =null ,date_from =null,date_to =null,status =null): Promise<any> {
+    GetAdNextPageUrl(type =null ,date_from =null,date_to =null,status =null,page:any,per_page:any): Promise<any> {
         
         var filter = ''
         
@@ -100,7 +105,14 @@ export class UserService {
              filter += '&filters[status]='+status 
         }
 
-        const send = this.http.get(`${next_url}${filter}`).toPromise()
+        if(page != null){
+            filter += '?page='+page 
+       }
+       if(per_page != null){
+        filter += '&per_page='+per_page 
+   }
+
+        const send = this.http.get(`${this.url}users${filter}`).toPromise()
         return send;
     }
 

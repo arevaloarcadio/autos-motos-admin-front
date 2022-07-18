@@ -40,8 +40,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
-
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedModule } from './pages/shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +79,9 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

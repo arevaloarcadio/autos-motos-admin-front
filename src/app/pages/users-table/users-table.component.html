@@ -1,6 +1,6 @@
 <div class="contenido">
   <br>
-  <div class="row" infinite-scroll  (scrolled)="onScrollDown($event)">
+  <div class="row" >
     <div class="col-md-8">
       <img src="assets/img/arrow.svg" (click)="back()" style="position: absolute;" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <p class="title-dashboard" style="margin-left: 35px;margin-top: -40px;">Usuario</p>
@@ -150,6 +150,17 @@
          >
       </tr>
     </table>
+
+    <!-- <mat-card-footer> -->
+      <mat-paginator
+          #error_pagination
+          [pageSize]="pagesize"
+          [pageSizeOptions]="[15, 25, 50, 100]"
+          showFirstLastButtons
+          (page)="nextPage($event)"
+          [length]="total"
+      ></mat-paginator>
+  <!-- </mat-card-footer> -->
 
   </div>
 </div>

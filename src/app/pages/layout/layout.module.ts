@@ -30,7 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 //import {MatProgressBarModule} from '@angular/material'
 
@@ -63,6 +63,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     CommonModule,
     MatDialogModule,
     MatTableModule,
+    MatPaginatorModule,
     MatProgressBarModule,
     MatMenuModule,
     InfiniteScrollModule

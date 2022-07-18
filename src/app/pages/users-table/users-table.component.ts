@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AlertMessageComponent } from '../alert-message/alert-message.component';
 import { AdsDetailsComponent } from '../ads-details/ads-details.component';
 import { Location } from '@angular/common';
-
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 export interface UserImport {
   user: any;
   type: any;
@@ -24,10 +24,19 @@ import '../../../assets/script/coreui-utils.js'
 
 @Component({
     selector: 'app-users-table',
+    // standalone: true,
     templateUrl: './users-table.component.html',
     styleUrls: ['./users-table.component.scss'],
+    // imports:[MatPaginatorModule]
 })
 export class UsersTableComponent implements OnInit {
+  @ViewChild('error_pagination')
+  paginator!: MatPaginator;
+
+  pagesize: number = 25;
+  p = 1;
+  offset: number = 0;
+  total: number = 0;
   constructor(
     private AdsService:AdsService,
     private UserService:UserService,
@@ -132,6 +141,9 @@ export class UsersTableComponent implements OnInit {
       console.log(res)
       this.dataSource = new MatTableDataSource<UserImport>(res.data.data);
       this.next_page_url =  res.data.next_page_url == null ? this.end = true : res.data.next_page_url;
+
+     
+                this.total = res.data.total;
     }).catch(err =>{
       console.log(err)
     })
@@ -153,21 +165,31 @@ export class UsersTableComponent implements OnInit {
     })
   }
 
-  onScrollDown($event :any){
-    var scroll : any = $("body");
+  onScrollDown(){
+    // var scroll : any = $("body");
 
     
     //console.log(scroll[0].scrollHeight +"=="+ Number($event.currentScrollPosition).toFixed())
     //if(scroll[0].scrollHeight == Number($event.currentScrollPosition).toFixed()){
-      if(!this.end){
-        this.UserService.GetAdNextPageUrl(this.next_page_url,this.type,this.dateStart,this.dateEnd,this.status)
+      // if(!this.end){
+        this.UserService.GetAdNextPageUrl(this.type,this.dateStart,this.dateEnd,this.status,this.p,this.pagesize)
         .then(res => {
-          this.getUsers()
+          this.dataSource = new MatTableDataSource<UserImport>(res.data.data);
+          // this.getUsers()
         }).catch(err =>{
           console.log(err)
         })
-      }
+      // }
     //} 
   }
+
+  nextPage(value: PageEvent) {
+    
+    this.pagesize = value.pageSize;
+    this.offset = value.pageIndex * value.pageSize;
+    console.log('pagina',value.pageIndex )
+    this.p=value.pageIndex+1 
+    this.onScrollDown();
+}
 }
   

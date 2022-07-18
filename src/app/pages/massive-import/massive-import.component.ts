@@ -4,7 +4,7 @@ import { Vacio, VacioU, SoloLetra, SoloNumero } from '../../../assets/script/gen
 import { Router} from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 export interface PeriodicElement {
   name: string;
@@ -38,7 +38,13 @@ import '../../../assets/script/coreui-utils.js'
     styleUrls: ['./massive-import.component.scss'],
 })
 export class MassiveImportComponent implements OnInit {
+  @ViewChild('error_pagination')
+  paginator!: MatPaginator;
 
+  pagesize: number = 25;
+  p = 1;
+  offset: number = 0;
+  total: number = 0;
     constructor(
         private AdsService:AdsService,
         private router: Router,
@@ -79,15 +85,29 @@ export class MassiveImportComponent implements OnInit {
 
   getGroupByCsv(){
     console.log(this.type)
-    this.AdsService.GetGroupByCsv(this.type,this.date,this.sort).then(res => {
-      res.data.forEach((res:any) =>{
+    this.AdsService.GetGroupByCsv(this.type,this.date,this.sort,this.p,this.pagesize).then(res => {
+
+      res.data.data.forEach((res:any) =>{
+        console.log('data',res)
         res.created_at = new Date(res.created_at).toLocaleDateString(),
         res.option = 'Ver Archivo'
+
       })
-      this.dataSource = res.data
+      // this.dataSource = new MatTableDataSource<UserImport>(res.data);
+      this.total=res.data.total
+       this.dataSource = res.data.data
     }).catch(err =>{
       console.log(err)
     }) 
   }
+
+  nextPage(value: PageEvent) {
+    
+    this.pagesize = value.pageSize;
+    this.offset = value.pageIndex * value.pageSize;
+    console.log('pagina',value.pageIndex )
+    this.p=value.pageIndex+1 
+    this.getGroupByCsv();
+}
 }
   

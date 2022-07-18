@@ -100,6 +100,8 @@ export class DetailsCsvAdsComponent implements OnInit {
       
     this.AdsService.GetByCsv(this.csv_ad_id).then(res => {
       this.dataSource = res.data;
+
+      console.log('esta es  la informa',res)
     }).catch(err =>{
       console.log(err)
     })

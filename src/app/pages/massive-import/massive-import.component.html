@@ -103,5 +103,13 @@
         (click)="selection.toggle(row)">
     </tr>
   </table>
+  <mat-paginator
+  #error_pagination
+  [pageSize]="pagesize"
+  [pageSizeOptions]="[15, 25, 50, 100]"
+  showFirstLastButtons
+  (page)="nextPage($event)"
+  [length]="total"
+></mat-paginator>
   </div>
 </div>

@@ -73,6 +73,8 @@ export class AdsService {
         return send;
     }
 
+
+
     
 
     GetById(id:string): Promise<any> {
@@ -94,7 +96,7 @@ export class AdsService {
         return send;
     }
 
-    GetGroupByCsv(type:any = null,date:any = null,sort:any = null): Promise<any> {
+    GetGroupByCsv(type:any = null,date:any = null,sort:any = null,page:any,per_page:any): Promise<any> {
         var filter = ''
         
         if(type != null){
@@ -107,6 +109,13 @@ export class AdsService {
         
         if(sort != null){
              filter += filter == '' ? '/?sort='+sort : '&sort='+sort
+        }
+
+        if(page != null){
+            filter += filter == '' ? '?page='+page :'&page='+page
+       }
+            if(per_page != null){
+                filter += filter == '' ? '?per_page='+per_page  : '&per_page='+per_page 
         }
 
         const send = this.http.get(`${this.url}ads/groupByCsv${filter}`).toPromise()
