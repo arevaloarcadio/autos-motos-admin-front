@@ -74,7 +74,12 @@ export class UserFormComponent implements OnInit {
 
   save(){
 
-    this.userService.update(this.formD.controls.id.value, this.formD.value).subscribe(
+   
+
+    let id =this.formD.controls.id.value
+    console.log('esto va',JSON.stringify(id))
+
+    this.userService.update(id, this.formD.value).subscribe(
       (data: any) => {
           // this.loading = false;
           // this.toastr.success(data.message, "Ha salido bien!");

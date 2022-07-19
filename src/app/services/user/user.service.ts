@@ -50,7 +50,9 @@ export class UserService {
       }
 
       
-    update(data: any, id: any): any {
+    update(id: any, data: string): any {
+
+        console.log('esto me  llego',id)
 
         return this.http.post(`${this.url}users/${id}`,data );
     }
