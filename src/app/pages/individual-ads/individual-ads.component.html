@@ -7,7 +7,7 @@
   </div>
   <br>
   <div class="card">
-    <div class="row" style="margin: 16px;" infinite-scroll  (scrolled)="onScrollDown($event)">
+    <div class="row" style="margin: 16px;" >
       <div style="display: flex; overflow-x: auto;white-space: nowrap;">
         
         
@@ -156,5 +156,13 @@
 
     </tr>
   </table>
+  <mat-paginator
+  #error_pagination
+  [pageSize]="pagesize"
+  [pageSizeOptions]="[15, 25, 50, 100]"
+  showFirstLastButtons
+  (page)="nextPage($event)"
+  [length]="total"
+></mat-paginator>
   </div>
 </div>

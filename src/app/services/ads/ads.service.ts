@@ -47,7 +47,28 @@ export class AdsService {
  
 
 
-    GetAdNextPageUrl(next_url:any,type:any = null,date:any = null,sort:any = null): Promise<any> {
+    // GetAdNextPageUrl(next_url:any,type:any = null,date:any = null,sort:any = null): Promise<any> {
+    //     var filter = ''
+        
+    //     if(type != null){
+    //         filter += '&filters[type]='+type
+    //     }
+        
+    //     if(date != null){
+    //         filter +=  '&filters[created_at]='+date
+    //     }
+        
+    //     if(sort != null){
+    //          filter += '&filters[status]='+sort
+    //     }
+
+    //     const send = this.http.get(`${next_url}${filter}`).toPromise()
+    //     return send;
+    // }
+
+
+    GetAdNextPageUrl(type =null ,date:any = null,sort:any = null,page:any,per_page:any): Promise<any> {
+        
         var filter = ''
         
         if(type != null){
@@ -59,10 +80,17 @@ export class AdsService {
         }
         
         if(sort != null){
-             filter += '&filters[status]='+sort
-        }
+            filter += '&filters[status]='+sort
+       }
 
-        const send = this.http.get(`${next_url}${filter}`).toPromise()
+        if(page != null){
+            filter += '?page='+page 
+       }
+       if(per_page != null){
+        filter += '&per_page='+per_page 
+   }
+
+        const send = this.http.get(`${this.url}ads${filter}`).toPromise()
         return send;
     }
 
