@@ -129,7 +129,8 @@ export class DetailsCsvAdsComponent implements OnInit {
           csv_ad_id : this.csv_ad_id,
           user_id : this.user_id,
           ad_id : ad_ids.length == 1 ? ad_ids[0] : null,
-          ad_length : ad_ids.length 
+          ad_length : ad_ids.length ,
+          anuncios :ad_ids
         }
       });
       this.getData()

@@ -11,7 +11,7 @@ import * as $ from 'jquery';
 
 import '../../../assets/script/coreui.bundle.min.js'
 import '../../../assets/script/coreui-utils.js'
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatPaginator, PageEvent,MatPaginatorIntl } from '@angular/material/paginator';
 export interface AdsImport {
   user: any;
   type: any;
@@ -38,9 +38,12 @@ export class IndividualAdsComponent implements OnInit {
       private AdsService:AdsService,
       private router: Router,
       public dialog: MatDialog,
-      private changeDetectorRefs: ChangeDetectorRef 
+      private changeDetectorRefs: ChangeDetectorRef,
+      private paginatord: MatPaginatorIntl 
 
-  ) { }
+  ) {
+    this.paginatord.itemsPerPageLabel = "Registros por página";
+   }
 
   ngOnInit(): void {
     this.getAds()

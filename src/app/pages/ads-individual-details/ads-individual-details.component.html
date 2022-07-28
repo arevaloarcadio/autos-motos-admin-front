@@ -1,7 +1,17 @@
 <div style="width: 419px;">
-<p class="title-details-ads">Detalles del anuncio</p>
+	<div class="row">
+		<div class="col-md-6">
+			<p class="title-details-ads">Detalles del anuncio</p>
+		</div>
+		<div class="col-md-6" style="    text-align: right;">
+			<button mat-button mat-dialog-close style="background: transparent;">X</button>
+		</div>
+	</div>
+
+
 <br>
 <br>
+
 <p class="sub-title-details-ads">Tipo de publicacion</p>
 <p class="type-details-ads" *ngIf="data.ad.auto_ad != null">Auto </p>
 <p class="type-details-ads" *ngIf="data.ad.mechanic_ad != null"> Talleres</p>
