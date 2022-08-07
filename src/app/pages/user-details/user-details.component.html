@@ -15,7 +15,8 @@
         </div>
         <br>
         <div class="col-md-12" style="text-align: center;margin-bottom:20px">
-            <h2><b>{{datosUsuario.first_name}}</b></h2>
+            <h2><b>{{datosUsuario?.first_name}}</b></h2>
+            <p style="color:red;    font-weight: 600;">{{datosUsuario?.type=='Profesional' ? 'Vendedor Profesional' : 'Vendedor Ocacional'}}</p>
         </div>
 
 
@@ -24,11 +25,11 @@
         </div>
 
         <div class="col-md-4">
-            <label><b>Dirección:</b></label>{{datosUsuario?.address}}
+            <label><b>Dirección:</b></label>{{datosUsuario?.dealer?.address}}
         </div>
 
         <div class="col-md-4">
-            <label><b>Ciudad:</b></label>{{datosUsuario?.city}}
+            <label><b>Ciudad:</b></label>{{datosUsuario?.dealer?.city}}
         </div>
 
 
@@ -41,7 +42,7 @@
         </div>
 
         <div class="col-md-4">
-            <label><b>País:</b></label>{{datosUsuario?.country}}
+            <label><b>País:</b></label>{{datosUsuario?.dealer?.country}}
         </div>
    
       
@@ -61,11 +62,11 @@
         
 <br><br>
           <div class="col-md-4">
-              <label><b>Productos publicados:</b></label>
+              <label><b>Productos publicados:</b></label>{{adsCount?.product_ads}}
           </div>
   
           <div class="col-md-4">
-              <label><b>Servicios publicados:</b></label>
+              <label><b>Servicios publicados:</b></label>{{adsCount?.service_ads}}
           </div>
   
           <div class="col-md-4">
@@ -84,7 +85,7 @@
 
 
             <!--tercer CARD-->
-            <div class="card">
+            <!-- <div class="card">
                 <div class="row" style="margin: 16px;">
                   <div class="col-md-12" style="    margin-bottom: 30px;">
                       <label><b>Historial de pagos</b></label>
@@ -101,6 +102,38 @@
                 </div>
                
             
-              </div>
+              </div> -->
+
+
+    <!--cuarto CARD-->
+       <div class="card">
+        <div class="row" style="margin: 16px;">
+          <div class="col-md-12" style="    margin-bottom: 30px;">
+              <label><b>{{datosUsuario?.plan_active[0]?.name}}</b></label>
+              <p style="color:red">{{datosUsuario?.plan_active[0]?.price}} /mes</p>
+          </div>
+        
+<br><br>
+          <!-- <div class="col-md-4">
+              <label><b>Productos publicados:</b></label>{{adsCount?.product_ads}}
+          </div>
+  
+          <div class="col-md-4">
+              <label><b>Servicios publicados:</b></label>{{adsCount?.service_ads}}
+          </div>
+  
+          <div class="col-md-4">
+              <label><b>Total ventas:</b></label>
+          </div> -->
+  
+  
+         
+     
+        
+       
+        </div>
+       
+    
+      </div>
 
   </div>

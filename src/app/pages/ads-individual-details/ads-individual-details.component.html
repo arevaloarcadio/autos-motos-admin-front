@@ -12,7 +12,7 @@
 <br>
 <br>
 
-<p class="sub-title-details-ads">Tipo de publicacion</p>
+<p class="sub-title-details-ads">Tipo de publicación</p>
 <p class="type-details-ads" *ngIf="data.ad.auto_ad != null">Auto </p>
 <p class="type-details-ads" *ngIf="data.ad.mechanic_ad != null"> Talleres</p>
 <p class="type-details-ads" *ngIf="data.ad.mobile_home_ad != null">Caravana </p>
@@ -23,7 +23,7 @@
 
 
 
-<p class="sub-title-details-ads" *ngIf="data.ad.images.length!=0">Imagenes</p>
+<p class="sub-title-details-ads" *ngIf="data.ad.images.length!=0">Imágenes</p>
 <div style="display: flex; overflow-x: auto;white-space: nowrap;">
 	<div class="photo" *ngFor="let item of data?.ad.images">
         <img style="width: 82px;height: 74px;border-radius: 6px;" [src]="'https://cdn.autosmotos.es/'+item.path" alt="">

@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class UserDetailsComponent implements OnInit {
 
   datosUsuario:any
+  adsCount:any
   toEdit$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor( private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
@@ -23,6 +24,7 @@ export class UserDetailsComponent implements OnInit {
     .pipe(
       switchMap(params => {
         if (params['user_id']) {
+          this.getConteo(params['user_id'])
           return this.userService.show(params['user_id']);
         } else {
           return of(null);
@@ -46,6 +48,15 @@ export class UserDetailsComponent implements OnInit {
      }
 
   ngOnInit(): void {
+  }
+
+
+  getConteo(id: number){
+    this.userService.conteo(id).subscribe((res:any)  => {
+      console.log('este conteo',res)
+      this.adsCount=res.data
+     
+    })
   }
 
 }

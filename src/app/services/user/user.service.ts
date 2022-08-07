@@ -122,4 +122,8 @@ export class UserService {
         const send = this.http.post(`${this.url}users/${user_id}/status`,{status:status}).toPromise()
         return send;
     }
+
+    conteo(index: number) {
+        return this.http.get(`${this.url}users/${index}/info_ads`);
+      }
 }

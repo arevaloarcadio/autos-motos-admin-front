@@ -96,9 +96,19 @@ export class IndividualAdsComponent implements OnInit {
     })
     
     this.AdsService.acceptRejectAd(status, this.user_id ,ad_ids).then((res:any) => {
+      console.log('este es el arreglo',ad_ids.length)
+      let palabra
+      let palabraRe
+      if(ad_ids.length>1){
+        palabra='¡Anuncios aprobados!';
+        palabraRe='¡Anuncios rechazado!';
+      }else{
+        palabra='¡Anuncio aprobado!';
+        palabraRe='¡Anuncio rechazado!';
+      }
       this.dialog.open(AlertMessageComponent, {
         data :  {
-          message : status  === 'approved' ? '¡Anuncios aprobados!' : '¡Anuncios rechazado!', 
+          message : status  === 'approved' ? palabra : palabraRe, 
           ad_accepted : status  === 'approved' ? true : null, 
           ad_rejected : status  === 'rejected' ? true : null, 
           anuncios :ad_ids
