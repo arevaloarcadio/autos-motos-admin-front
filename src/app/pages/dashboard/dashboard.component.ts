@@ -47,24 +47,48 @@ export class DashboardComponent implements OnInit {
   countAdsImportToday:any = 0;
 
   getDate($event : any,input : string){
-    this.start = '';
-    this.end = '';
-
-    input  == 'start' ? 
+    console.log('tiempos',$event.target.value)
+        input  == 'start' ? 
     this.dateStart = new Date($event.target.value).toISOString().split('T')[0] : 
     this.dateEnd = new Date($event.target.value).toISOString().split('T')[0];
-    
+
+    console.log('esta es la fecha',this.dateStart, 'esta es la otra',this.dateEnd)
     if(this.dateStart != null && this.dateEnd != null){
-      $event.target.value = ''
-      this.filters.push({start : this.dateStart.split('-')[2]+'/'+this.dateStart.split('-')[1] , end :this.dateEnd.split('-')[2]+'/'+this.dateEnd.split('-')[1]})
-      console.log('este es el filtro',this.filters)
-      this.AdsService.GetBySourceDate(this.dateStart,this.dateEnd).then(res => {
-        this.ads = res.data
-      }).catch(err =>{
-        console.log(err)
-      })
-    }
+          // $event.target.value = ''
+          // this.filters.push({start : this.dateStart.split('-')[2]+'/'+this.dateStart.split('-')[1] , end :this.dateEnd.split('-')[2]+'/'+this.dateEnd.split('-')[1]})
+          // console.log('este es el filtro',this.filters)
+          this.AdsService.GetBySourceDate(this.dateStart,this.dateEnd).then(res => {
+            this.ads = res.data
+          }).catch(err =>{
+            console.log(err)
+          })
+        }
   }
+
+  // getDate($event : any,input : string){
+  //   this.start = '';
+  //   this.end = '';
+
+  //   input  == 'start' ? 
+  //   this.dateStart = new Date($event.target.value).toISOString().split('T')[0] : 
+  //   this.dateEnd = new Date($event.target.value).toISOString().split('T')[0];
+
+
+  //   this.end=this.dateEnd
+
+  //   console.log('tiempo arranque',this.dateStart,'tiempo fin',this.dateEnd)
+    
+  //   if(this.dateStart != null && this.dateEnd != null){
+  //     $event.target.value = ''
+  //     // this.filters.push({start : this.dateStart.split('-')[2]+'/'+this.dateStart.split('-')[1] , end :this.dateEnd.split('-')[2]+'/'+this.dateEnd.split('-')[1]})
+  //     // console.log('este es el filtro',this.filters)
+  //     this.AdsService.GetBySourceDate(this.dateStart,this.dateEnd).then(res => {
+  //       this.ads = res.data
+  //     }).catch(err =>{
+  //       console.log(err)
+  //     })
+  //   }
+  // }
 
   exitFilter(id: any){
     console.log('filtro',id)

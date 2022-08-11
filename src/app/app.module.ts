@@ -42,6 +42,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { SharedModule } from './pages/shared/shared.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,7 @@ import { SharedModule } from './pages/shared/shared.module';
     MatPaginatorModule,
     SharedModule
   ],
-  providers: [],
+  providers: [   { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

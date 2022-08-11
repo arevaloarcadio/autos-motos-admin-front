@@ -18,7 +18,7 @@
       <div class="col-md-9" style="text-align: right;">
         <div class="row">
           <div style="display: flex; overflow-x: auto;white-space: nowrap;">
-            <div class="input-icons"> 
+            <!-- <div class="input-icons"> 
               <select class="input-select" id="seller" (change)="getType($event)" >
                 <option value="">Tipo de vendedor</option>
                 <option value="ocassional">Vendedor ocasional</option>
@@ -26,7 +26,7 @@
                 <option value="">Todos</option>
               </select>
                <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
-            </div>
+            </div> -->
             <div class="input-icons">
               <input class="input-date"  placeholder="Fecha" (dateChange)="getDate($event)" matInput [matDatepicker]="picker">
               <mat-datepicker #picker></mat-datepicker>
