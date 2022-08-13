@@ -92,7 +92,7 @@ export class UserService {
         var filter = ''
         
         if(type != null){
-            filter += '&filters[type]='+type
+            filter += '?filters[type]='+type
         }
         
         if(date_from != null){
@@ -108,7 +108,12 @@ export class UserService {
         }
 
         if(page != null){
-            filter += '?page='+page 
+            if(type==null){
+                filter+='?page='+page 
+            }else{
+                filter += '&page='+page 
+            }
+            
        }
        if(per_page != null){
         filter += '&per_page='+per_page 

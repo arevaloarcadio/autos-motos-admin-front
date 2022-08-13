@@ -72,7 +72,7 @@ export class AdsService {
         var filter = ''
         
         if(type != null){
-            filter += '&filters[type]='+type
+            filter += '?filters[type]='+type
         }
         
         if(date != null){
@@ -83,9 +83,14 @@ export class AdsService {
             filter += '&filters[status]='+sort
        }
 
-        if(page != null){
-            filter += '?page='+page 
-       }
+       if(page != null){
+        if(type==null){
+            filter+='?page='+page 
+        }else{
+            filter += '&page='+page 
+        }
+        
+   }
        if(per_page != null){
         filter += '&per_page='+per_page 
    }
