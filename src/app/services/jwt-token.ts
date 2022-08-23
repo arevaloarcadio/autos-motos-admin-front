@@ -1,11 +1,11 @@
 export default {
 	setToken(token : any) {
-		window.localStorage.setItem('token_autos_motos', JSON.stringify(token));
+		localStorage.setItem('token_autos_motos', token);
 	},
 	getToken() {
-		return JSON.parse(window.localStorage.getItem('token_autos_motos') || '{}');
+		return JSON.parse(localStorage.getItem('token_autos_motos') || '{}');
 	},
 	removeToken() {
-		window.localStorage.removeItem('token_autos_motos');
+		localStorage.removeItem('token_autos_motos');
 	}
 }

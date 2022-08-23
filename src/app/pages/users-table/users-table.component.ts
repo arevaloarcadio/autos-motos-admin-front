@@ -9,8 +9,10 @@ import * as $ from 'jquery';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertMessageComponent } from '../alert-message/alert-message.component';
 import { AdsDetailsComponent } from '../ads-details/ads-details.component';
+import { SendEmailModalComponent } from '../send-email-modal/send-email-modal.component';
 import { Location } from '@angular/common';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+
 export interface UserImport {
   user: any;
   type: any;
@@ -190,6 +192,12 @@ export class UsersTableComponent implements OnInit {
     console.log('pagina',value.pageIndex )
     this.p=value.pageIndex+1 
     this.onScrollDown();
+}
+
+sendEmail(id: any) {
+  this.dialog.open(SendEmailModalComponent, {
+    data : {id : id} 
+  });
 }
 }
   

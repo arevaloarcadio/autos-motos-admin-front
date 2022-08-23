@@ -131,4 +131,12 @@ export class UserService {
     conteo(index: number) {
         return this.http.get(`${this.url}users/${index}/info_ads`);
       }
+
+           
+    enviarInvitacion(data: string): any {
+
+ 
+
+        return this.http.post(`${this.url}recovery-password-admin`,data );
+    }
 }

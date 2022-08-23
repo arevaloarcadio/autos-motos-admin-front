@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
             this.loading = false;
             this.router.navigate(['admin'])
         }).catch(err=>{
-            console.log(err.error.error)
+            console.log(err)
             if(err.error.error=='invalid_credentials'){
                 this.error=2;
             }

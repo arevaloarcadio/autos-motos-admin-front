@@ -3,8 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-
+// import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpClient,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 //import { SidebarModule } from '@coreui/angular';
 
 
@@ -43,6 +47,9 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { SharedModule } from './pages/shared/shared.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { SendEmailModalComponent } from './pages/send-email-modal/send-email-modal.component';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +63,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     LoginComponent,
     UserFormComponent,
     UserDetailsComponent,
+    SendEmailModalComponent,
   ],
   imports: [
     //SidebarModule,
@@ -82,9 +90,16 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatSnackBarModule,
     MatGridListModule,
     MatPaginatorModule,
+    ToastrModule.forRoot(),
     SharedModule
   ],
-  providers: [   { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [   { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
