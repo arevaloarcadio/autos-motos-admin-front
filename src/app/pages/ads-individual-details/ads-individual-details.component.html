@@ -62,11 +62,25 @@
 <div class="row">
 	<div class="col-md-6">
 		<p class="sub-title-details-ads">Teléfono</p>
-		<p class="type-details-ads">{{data?.mobile_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.auto_ad != null">{{data?.auto_ad?.mobile_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.mechanic_ad != null"> {{data?.mechanic_ad?.mobile_number}}</p>
+		<p class="type-details-ads" *ngIf="data.ad.mobile_home_ad != null">{{data?.mobile_home_ad?.mobile_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.moto_ad != null">{{data?.moto_ad?.mobile_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.rental_ad != null">{{data?.rental_ad?.mobile_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.shop_ad != null">{{data?.shop_ad?.mobile_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.truck_ad != null">{{data?.truck_ad?.mobile_number}} </p>
+		
 	</div>
 	<div class="col-md-6">
 		<p class="sub-title-details-ads">WhatsApp</p>
-		<p class="type-details-ads"> {{data?.whatsapp_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.auto_ad != null">{{data?.auto_ad?.whatsapp_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.mechanic_ad != null"> {{data?.mechanic_ad?.whatsapp_number}}</p>
+		<p class="type-details-ads" *ngIf="data.ad.mobile_home_ad != null">{{data?.mobile_home_ad?.whatsapp_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.moto_ad != null">{{data?.moto_ad?.whatsapp_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.rental_ad != null">{{data?.rental_ad?.whatsapp_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.shop_ad != null">{{data?.shop_ad?.whatsapp_number}} </p>
+		<p class="type-details-ads" *ngIf="data.ad.truck_ad != null">{{data?.truck_ad?.whatsapp_number}} </p>
+		
 	</div>
 </div>
 </div>
