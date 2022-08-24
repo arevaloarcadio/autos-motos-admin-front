@@ -16,10 +16,10 @@
                 <!--<option value="">Tipo de anuncio</option>-->
                 <option value="auto">Auto</option>
                 <option value="moto">Moto</option>
-                <option value="mobile_home">Caravanas</option>
+                <option value="mobile-home">Caravanas</option>
                 <option value="truck">Camiones</option>
-                <option value="shop">Talleres</option>
-                <option value="mechanic">Recambio</option>
+                <option value="mechanic">Talleres</option>
+                <option value="shop">Recambio</option>
                 <option value="rental">Alquiler</option>
               </select>
               <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i>
@@ -87,11 +87,11 @@
       <th mat-header-cell *matHeaderCellDef class="th-table"> Tipo de publicación </th>
       <td mat-cell *matCellDef="let element">
         <span *ngIf="element.auto_ad != null">Auto</span>
-        <span *ngIf="element.mechanic_ad != null">Recambios</span>
+        <span *ngIf="element.shop_ad  != null">Recambios</span>
         <span *ngIf="element.mobile_home_ad != null">Caravana</span>
         <span *ngIf="element.moto_ad != null">Moto</span>
         <span *ngIf="element.rental_ad != null">Alquiler</span>
-        <span *ngIf="element.shop_ad != null">Talleres</span>
+        <span *ngIf="element.mechanic_ad != null">Talleres</span>
         <span *ngIf="element.truck_ad != null">Camiones</span>
       </td>
     </ng-container>
