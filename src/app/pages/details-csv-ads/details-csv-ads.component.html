@@ -16,7 +16,7 @@
         <div class="row">
           
           <div class="col-md-2">
-            <img src="assets/img/user-icon-header.svg" style="width: 40px;margin-top: 12px;height: 40px;">&nbsp;&nbsp; 
+            <img  [src]="user.image ? 'https://cdn.autosmotos.es/'+user?.image : 'assets/img/user-icon-header.svg'" style="width: 40px;margin-top: 12px;height: 40px;">&nbsp;&nbsp; 
           </div>
           
           <div class="col-md-8">

@@ -169,6 +169,7 @@ export class IndividualAdsComponent implements OnInit {
   }
 
   onScrollDown(){
+    this.data=[]
     // var scroll : any = $("body");
     //console.log(scroll[0].scrollHeight +"=="+ Number($event.currentScrollPosition).toFixed())
     //if(scroll[0].scrollHeight == Number($event.currentScrollPosition).toFixed()){
