@@ -9,6 +9,15 @@
   <div class="card">
     <div class="row" style="margin: 16px;" >
       <div style="display: flex; overflow-x: auto;white-space: nowrap;">
+        <div class="input-icons"> 
+          <input type="text" class="input-select" placeholder="Buscar" style="margin-right: 20px;" (keyup)="busqueda()"  [(ngModel)]="buscador"/>
+          <!-- <select class="input-select" id="seller" (change)="getType($event)" >
+            <option value="Tipo de vendedor">Tipo de vendedor</option>
+            <option value="Profesional">Profesional</option>
+            <option value="Ocasional">Ocasional</option>
+          </select> -->
+          <!-- <i class="icon" ><img src="/assets/img/select-icon.svg" onclick="document.querySelector('#seller').click()"  style="margin-left: -56px;"></i> -->
+        </div>
         
         
          <div class="input-icons"> 
@@ -98,10 +107,10 @@
 
     <!-- Weight Column -->
     <ng-container matColumnDef="make">
-      <th mat-header-cell *matHeaderCellDef class="th-table"> Título del Anuncio </th>
+      <th mat-header-cell *matHeaderCellDef class="th-table"> Vehículo </th>
       <td mat-cell *matCellDef="let element"> 
         
-        {{element.title}} 
+        {{element.auto_ad ? element.auto_ad.make.name : element.truck_ad ? element.truck_ad.make.name : element.moto_ad ? element.moto_ad.make.name : element.mobile_home_ad ? element.mobile_home_ad.make.name : ''   }} 
       </td>
     </ng-container>
 

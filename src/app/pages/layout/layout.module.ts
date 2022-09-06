@@ -63,6 +63,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CommonModule,
     MatDialogModule,
     MatTableModule,
+    FormsModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatMenuModule,

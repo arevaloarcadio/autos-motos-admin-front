@@ -87,7 +87,7 @@ export class UserService {
         return send;
     }
 
-    GetAdNextPageUrl(type =null ,date_from =null,date_to =null,status =null,page:any,per_page:any): Promise<any> {
+    GetAdNextPageUrl(type =null ,date_from =null,date_to =null,status =null,page:any,per_page:any,filter_like:any): Promise<any> {
         
         var filter = ''
         
@@ -106,6 +106,15 @@ export class UserService {
         if(status != null){
              filter += '&filters[status]='+status 
         }
+
+        if(filter_like != null){
+            if(filter==''){
+                filter += '?filter_like='+filter_like 
+            }else{
+                filter += '&filter_like='+filter_like 
+            }
+            
+       }
 
         if(page != null){
             if(type==null){

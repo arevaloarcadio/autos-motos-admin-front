@@ -43,6 +43,7 @@ export class MassiveImportComponent implements OnInit {
 
   pagesize: number = 25;
   p = 1;
+  buscador: any
   offset: number = 0;
   total: number = 0;
     constructor(
@@ -85,7 +86,7 @@ export class MassiveImportComponent implements OnInit {
 
   getGroupByCsv(){
     console.log(this.type)
-    this.AdsService.GetGroupByCsv(this.type,this.date,this.sort,this.p,this.pagesize).then(res => {
+    this.AdsService.GetGroupByCsv(this.type,this.date,this.sort,this.p,this.pagesize,this.buscador).then(res => {
 
       res.data.data.forEach((res:any) =>{
         console.log('data',res)
@@ -108,6 +109,10 @@ export class MassiveImportComponent implements OnInit {
     console.log('pagina',value.pageIndex )
     this.p=value.pageIndex+1 
     this.getGroupByCsv();
+}
+busqueda(){
+  console.log('buscaodr',this.buscador)
+  this.getGroupByCsv()
 }
 }
   

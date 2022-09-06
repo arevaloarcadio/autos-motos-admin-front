@@ -67,7 +67,7 @@ export class AdsService {
     // }
 
 
-    GetAdNextPageUrl(type =null ,date:any = null,sort:any = null,page:any,per_page:any): Promise<any> {
+    GetAdNextPageUrl(type =null ,date:any = null,sort:any = null,page:any,per_page:any,filter_like:any): Promise<any> {
         
         var filter = ''
         
@@ -82,6 +82,15 @@ export class AdsService {
         if(sort != null){
             filter += '&filters[status]='+sort
        }
+
+       if(filter_like != null){
+            if(filter==''){
+                filter += '?filter_like='+filter_like 
+            }else{
+                filter += '&filter_like='+filter_like 
+            }
+            
+        }
 
        if(page != null){
         if(type==null){
@@ -129,7 +138,7 @@ export class AdsService {
         return send;
     }
 
-    GetGroupByCsv(type:any = null,date:any = null,sort:any = null,page:any,per_page:any): Promise<any> {
+    GetGroupByCsv(type:any = null,date:any = null,sort:any = null,page:any,per_page:any,filter_like:any): Promise<any> {
         var filter = ''
         
         if(type != null){
@@ -142,6 +151,15 @@ export class AdsService {
         
         if(sort != null){
              filter += filter == '' ? '/?sort='+sort : '&sort='+sort
+        }
+
+        if(filter_like != null){
+            if(filter==''){
+                filter += '/?filter_like='+filter_like 
+            }else{
+                filter += '&filter_like='+filter_like 
+            }
+            
         }
 
         if(page != null){

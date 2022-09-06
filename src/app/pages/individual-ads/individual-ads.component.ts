@@ -29,7 +29,7 @@ export interface AdsImport {
 export class IndividualAdsComponent implements OnInit {
   @ViewChild('error_pagination')
   paginator!: MatPaginator;
-
+  buscador: any
   pagesize: number = 25;
   p = 1;
   offset: number = 0;
@@ -174,9 +174,9 @@ export class IndividualAdsComponent implements OnInit {
     //console.log(scroll[0].scrollHeight +"=="+ Number($event.currentScrollPosition).toFixed())
     //if(scroll[0].scrollHeight == Number($event.currentScrollPosition).toFixed()){
       // if(!this.end){
-        
+   
         // this.AdsService.GetAdNextPageUrl(this.next_page_url,this.type,this.date,this.sort)
-        this.AdsService.GetAdNextPageUrl(this.type,this.date,this.sort,this.p,this.pagesize).then((res:any) => {
+        this.AdsService.GetAdNextPageUrl(this.type,this.date,this.sort,this.p,this.pagesize,this.buscador).then((res:any) => {
           
           res.data.data.forEach((ad:any)  =>{
             if(ad.auto_ad) ad.auto_ad.created_at = new Date(ad.auto_ad.created_at).toLocaleDateString() 
@@ -205,6 +205,11 @@ export class IndividualAdsComponent implements OnInit {
     console.log('pagina',value.pageIndex )
     this.p=value.pageIndex+1 
     this.onScrollDown();
+}
+
+busqueda(){
+  console.log('buscaodr',this.buscador)
+  this.onScrollDown()
 }
 }
   

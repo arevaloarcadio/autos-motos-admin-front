@@ -34,7 +34,7 @@ import '../../../assets/script/coreui-utils.js'
 export class UsersTableComponent implements OnInit {
   @ViewChild('error_pagination')
   paginator!: MatPaginator;
-
+  buscador: any
   pagesize: number = 25;
   p = 1;
   offset: number = 0;
@@ -174,7 +174,7 @@ export class UsersTableComponent implements OnInit {
     //console.log(scroll[0].scrollHeight +"=="+ Number($event.currentScrollPosition).toFixed())
     //if(scroll[0].scrollHeight == Number($event.currentScrollPosition).toFixed()){
       // if(!this.end){
-        this.UserService.GetAdNextPageUrl(this.type,this.dateStart,this.dateEnd,this.status,this.p,this.pagesize)
+        this.UserService.GetAdNextPageUrl(this.type,this.dateStart,this.dateEnd,this.status,this.p,this.pagesize,this.buscador)
         .then(res => {
           this.dataSource = new MatTableDataSource<UserImport>(res.data.data);
           // this.getUsers()
@@ -198,6 +198,11 @@ sendEmail(id: any) {
   this.dialog.open(SendEmailModalComponent, {
     data : {id : id} 
   });
+}
+
+busqueda(){
+  console.log('buscaodr',this.buscador)
+  this.onScrollDown()
 }
 }
   
