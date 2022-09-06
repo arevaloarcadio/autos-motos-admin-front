@@ -51,11 +51,11 @@ export class UserFormComponent implements OnInit {
         this.formD.controls['id'].setValue(JSON.parse(JSON.stringify(data)).data['id']);
         this.formD.controls['first_name'].setValue(JSON.parse(JSON.stringify(data)).data['first_name']);
         this.formD.controls['email'].setValue(JSON.parse(JSON.stringify(data)).data['email']);
-        this.formD.controls['city'].setValue(JSON.parse(JSON.stringify(data)).data['city']);
+        this.formD.controls['city'].setValue(JSON.parse(JSON.stringify(data)).data['dealer']['city']);
         this.formD.controls['whatsapp_number'].setValue(JSON.parse(JSON.stringify(data)).data['whatsapp_number']);
         this.formD.controls['mobile_number'].setValue(JSON.parse(JSON.stringify(data)).data['mobile_number']);
-        this.formD.controls['country'].setValue(JSON.parse(JSON.stringify(data)).data['country']);
-        this.formD.controls['address'].setValue(JSON.parse(JSON.stringify(data)).data['address']);
+        this.formD.controls['country'].setValue(JSON.parse(JSON.stringify(data)).data['dealer']['country']);
+        this.formD.controls['address'].setValue(JSON.parse(JSON.stringify(data)).data['dealer']['address']);
         // this.formD.controls['descripcion'].setValue(data['descripcion']);
         // this.formD.controls['precio'].setValue(data['precio']);
 
