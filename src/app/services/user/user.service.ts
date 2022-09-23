@@ -116,19 +116,25 @@ export class UserService {
             
        }
 
-        if(page != null){
+/*         if(page != null){
             if(type==null){
                 filter+='?page='+page 
             }else{
                 filter += '&page='+page 
             }
             
-       }
+       } */
        if(per_page != null){
         filter += '&per_page='+per_page 
    }
 
         const send = this.http.get(`${this.url}users${filter}`).toPromise()
+        return send;
+    }
+
+    getNextPage(page:any, per_page:any, offset:any): Promise<any> {
+        let next = '?page='+ page + '&per_page='+ per_page 
+        const send = this.http.get(`${this.url}users${next}`).toPromise()
         return send;
     }
 
