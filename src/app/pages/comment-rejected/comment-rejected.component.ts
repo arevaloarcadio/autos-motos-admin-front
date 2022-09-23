@@ -63,6 +63,7 @@ anuncios:any;
       if(this.ad_id = this.route.snapshot.queryParams["ad_id"]){
         this.AdsService.getAdById(this.ad_id).then((res:any) => {
           this.ad = res.data;
+          console.log('estaaaa',this.ad)
         }).catch(err =>{
           console.log(err)
         })

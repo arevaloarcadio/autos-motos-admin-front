@@ -34,11 +34,11 @@
 
 
         <div class="col-md-4">
-            <label><b>WhatsApp:</b></label>{{datosUsuario?.whatsapp_number}}
+            <label><b>WhatsApp:</b></label>{{ datosUsuario && datosUsuario.whatsapp_number!=null ? datosUsuario.whatsapp_number : datosUsuario?.dealer?.whatsapp_number }}
         </div>
 
         <div class="col-md-4">
-            <label><b>Número de teléfono:</b></label>{{datosUsuario?.mobile_number}}
+            <label><b>Número de teléfono:</b></label>{{ datosUsuario && datosUsuario.mobile_number!=null ? datosUsuario.mobile_number : datosUsuario?.dealer?.mobile_number }}
         </div>
 
         <div class="col-md-4">

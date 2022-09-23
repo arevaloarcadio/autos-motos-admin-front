@@ -89,14 +89,16 @@ export class IndividualAdsComponent implements OnInit {
     });
   }
 
-  ApprovedRejected(status:any){
+  ApprovedRejected(status:any,elemento?:any){
+    console.log('elemento',elemento)
     var ad_ids: any[] = []
     this.selection.selected.forEach((row:any)=>{
       ad_ids.push(row.id) 
     })
     
-    this.AdsService.acceptRejectAd(status, this.user_id ,ad_ids).then((res:any) => {
+    this.AdsService.acceptRejectAd(status, elemento.user_id,ad_ids).then((res:any) => {
       console.log('este es el arreglo',ad_ids.length)
+      console.log('este es el user',this.user_id)
       let palabra
       let palabraRe
       if(ad_ids.length>1){
@@ -111,7 +113,8 @@ export class IndividualAdsComponent implements OnInit {
           message : status  === 'approved' ? palabra : palabraRe, 
           ad_accepted : status  === 'approved' ? true : null, 
           ad_rejected : status  === 'rejected' ? true : null, 
-          anuncios :ad_ids
+          anuncios :ad_ids,
+          user_id:elemento.user_id
         }
       });
       this.getAds()
