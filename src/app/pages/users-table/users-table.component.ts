@@ -191,7 +191,14 @@ export class UsersTableComponent implements OnInit {
     this.offset = value.pageIndex * value.pageSize;
     console.log('pagina',value.pageIndex )
     this.p=value.pageIndex+1 
-    this.onScrollDown();
+
+    this.UserService.getNextPage(this.p, this.pagesize, this.offset)
+        .then(res => {
+          this.dataSource = new MatTableDataSource<UserImport>(res.data.data);
+        }).catch(err =>{
+          console.log(err)
+        })
+    //this.onScrollDown();
 }
 
 sendEmail(id: any) {
