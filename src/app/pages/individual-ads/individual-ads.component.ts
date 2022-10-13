@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 import '../../../assets/script/coreui.bundle.min.js'
 import '../../../assets/script/coreui-utils.js'
 import { MatPaginator, PageEvent,MatPaginatorIntl } from '@angular/material/paginator';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 export interface AdsImport {
   user: any;
   type: any;
@@ -34,6 +35,9 @@ export class IndividualAdsComponent implements OnInit {
   p = 1;
   offset: number = 0;
   total: number = 0;
+  search: string = '';
+  searchUpdate = new Subject<string>();
+
   constructor(
       private AdsService:AdsService,
       private router: Router,
@@ -42,6 +46,12 @@ export class IndividualAdsComponent implements OnInit {
       private paginatord: MatPaginatorIntl 
 
   ) {
+    this.searchUpdate.pipe(
+      debounceTime(800),
+      distinctUntilChanged())
+      .subscribe(value => {
+        this.onScrollDown(value);
+      });
     this.paginatord.itemsPerPageLabel = "Registros por página";
    }
 
@@ -171,7 +181,7 @@ export class IndividualAdsComponent implements OnInit {
     })
   }
 
-  onScrollDown(){
+  onScrollDown(search?: string){
     this.data=[]
     // var scroll : any = $("body");
     //console.log(scroll[0].scrollHeight +"=="+ Number($event.currentScrollPosition).toFixed())
@@ -179,7 +189,7 @@ export class IndividualAdsComponent implements OnInit {
       // if(!this.end){
    
         // this.AdsService.GetAdNextPageUrl(this.next_page_url,this.type,this.date,this.sort)
-        this.AdsService.GetAdNextPageUrl(this.type,this.date,this.sort,this.p,this.pagesize,this.buscador).then((res:any) => {
+        this.AdsService.GetAdNextPageUrl(this.type,this.date,this.sort,this.p,this.pagesize, search).then((res:any) => {
           
           res.data.data.forEach((ad:any)  =>{
             if(ad.auto_ad) ad.auto_ad.created_at = new Date(ad.auto_ad.created_at).toLocaleDateString() 
@@ -192,7 +202,7 @@ export class IndividualAdsComponent implements OnInit {
           })
 
           this.data.push(...res.data.data) 
-          this.dataSource = new MatTableDataSource<AdsImport>(this.data);
+          this.dataSource = new MatTableDataSource<AdsImport>(res.data.data);
           this.next_page_url =  res.data.next_page_url == null ? this.end = true : res.data.next_page_url;  
         }).catch((err:any) =>{
           console.log(err)
@@ -210,9 +220,9 @@ export class IndividualAdsComponent implements OnInit {
     this.onScrollDown();
 }
 
-busqueda(){
-  console.log('buscaodr',this.buscador)
-  this.onScrollDown()
-}
+/*   busqueda(){
+    console.log('buscaodr',this.buscador)
+    this.onScrollDown()
+  } */
 }
   

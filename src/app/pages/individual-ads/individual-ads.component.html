@@ -10,7 +10,8 @@
     <div class="row" style="margin: 16px;" >
       <div style="display: flex; overflow-x: auto;white-space: nowrap;">
         <div class="input-icons"> 
-          <input type="text" class="input-select" placeholder="Buscar" style="margin-right: 20px;" (keyup)="busqueda()"  [(ngModel)]="buscador"/>
+          <!-- <input type="text" class="input-select" placeholder="Buscar" style="margin-right: 20px;" (keyup)="busqueda()"  [(ngModel)]="buscador"/> -->
+          <input type="text" class="input-select" placeholder="Buscar" style="margin-right: 20px;" (ngModelChange)="this.searchUpdate.next($event)" [(ngModel)]="search"/>
           <!-- <select class="input-select" id="seller" (change)="getType($event)" >
             <option value="Tipo de vendedor">Tipo de vendedor</option>
             <option value="Profesional">Profesional</option>
