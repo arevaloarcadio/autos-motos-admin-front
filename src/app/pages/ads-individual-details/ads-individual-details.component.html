@@ -25,6 +25,10 @@
 
 <p class="sub-title-details-ads" *ngIf="data.ad.images.length!=0">Imágenes</p>
 <div style="display: flex; overflow-x: auto;white-space: nowrap;">
+	<div class="photo">
+		<img style="width: 82px;height: 74px;border-radius: 6px;" [src]="'https://cdn.autosmotos.es/' + data?.ad?.thumbnail" alt=""> 
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
 	<div class="photo" *ngFor="let item of data?.ad.images">
         <img style="width: 82px;height: 74px;border-radius: 6px;" [src]="'https://cdn.autosmotos.es/'+item.path" alt="">
         &nbsp;&nbsp;&nbsp;&nbsp;
