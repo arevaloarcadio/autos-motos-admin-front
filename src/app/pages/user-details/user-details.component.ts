@@ -24,7 +24,7 @@ export class UserDetailsComponent implements OnInit {
     .pipe(
       switchMap(params => {
         if (params['user_id']) {
-          this.getConteo(params['user_id'])
+          //this.getConteo(params['user_id'])
           return this.userService.show(params['user_id']);
         } else {
           return of(null);
@@ -40,7 +40,7 @@ export class UserDetailsComponent implements OnInit {
         // if(data['videos'].length > 0){
         //   this.videos = data['videos']
         // }
-
+        this.getConteo();
         console.log('este es el usuario',data)
       }
     })
@@ -51,12 +51,18 @@ export class UserDetailsComponent implements OnInit {
   }
 
 
-  getConteo(id: number){
-    this.userService.conteo(id).subscribe((res:any)  => {
-      console.log('este conteo',res)
-      this.adsCount=res.data
-     
-    })
+  getConteo(){
+    if (this.datosUsuario.dealer_id){
+      this.userService.conteoProf(this.datosUsuario.dealer_id).subscribe((res:any) => {
+        this.adsCount = res.data
+      })
+
+    } else { 
+      this.userService.conteo(this.datosUsuario.id).subscribe((res:any)  => {
+        console.log('este conteo',res)
+        this.adsCount=res.data
+      })
+    }
   }
 
 }
