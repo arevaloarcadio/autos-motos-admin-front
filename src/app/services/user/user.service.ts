@@ -144,7 +144,8 @@ export class UserService {
     }
 
     conteo(index: number) {
-        return this.http.get(`${this.url}users/${index}/info_ads`);
+        //return this.http.get(`${this.url}users/${index}/info_ads`);
+        return this.http.get(`${this.url}ads/byDealerCount/${index}`);
       }
 
            
