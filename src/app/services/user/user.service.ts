@@ -50,11 +50,26 @@ export class UserService {
       }
 
       
-    update(id: any, data: string): any {
+    update(id: any, data: any,file :any): any {
 
         console.log('esto me  llego',id)
 
-        return this.http.post(`${this.url}users/${id}`,data );
+        console.log(file)
+
+        console.log(data);
+        
+        var formData = new FormData;
+
+        for(var d in data){
+            console.log(d,'=>',data[d])
+            formData.append(d,data[d] == null ? '' : data[d])
+        }
+
+        if(file != null){
+            formData.append("logo_path",file)
+        }
+
+        return this.http.post(`${this.url}users/${id}`,formData);
     }
 
     getUsers(type =null ,date_from =null,date_to =null,status =null,offset=null,params?:string){

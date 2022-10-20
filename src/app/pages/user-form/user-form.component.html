@@ -9,6 +9,7 @@
     <br>
     <div class="card">
       <div class="row" style="margin: 16px;">
+        <h1 *ngIf="datosUsuario?.type == 'Profesional'"  >Usuario</h1>
         <h2>{{datosUsuario?.first_name}}</h2>
         <h4>{{datosUsuario?.email}}</h4>
         <form [formGroup]="formD">
@@ -28,13 +29,13 @@
                       </mat-form-field>
                
                 </div>
-                <div class="col-md-4" >
+                <!--<div class="col-md-4" >
                     <mat-form-field appearance="outline">
                         <mat-label>Ciudad</mat-label>
                         <input matInput placeholder="Placeholder"  formControlName="city">
                       </mat-form-field>
                
-                </div>
+                </div>-->
 
                 <div class="col-md-4" >
                     <mat-form-field appearance="outline">
@@ -50,7 +51,7 @@
                       </mat-form-field>
                
                 </div>
-                <div class="col-md-4" >
+                <!--<div class="col-md-4" >
                     <mat-form-field appearance="outline">
                         <mat-label>Pais</mat-label>
                         <input matInput placeholder="Placeholder"  formControlName="country">
@@ -63,7 +64,7 @@
                         <input matInput placeholder="Placeholder"  formControlName="address">
                       </mat-form-field>
                
-                </div>
+                </div>-->
      
         
     
@@ -71,16 +72,96 @@
               
               </div>
 
-      
+          
+          <h2 *ngIf="datosUsuario?.type == 'Profesional'"  >Empresa</h2>
+        
+          <div *ngIf="datosUsuario?.type == 'Profesional'" style="text-align: center;" class="circleProfile">
+            <div class="pencilProfile" (click)="showFile()">
+              <img src="../../../assets/iconos/pencil-white.svg">
+            </div>
+            <img  id="logo_path" [src]="datosUsuario.dealer?.logo_path ? datosUsuario.dealer?.logo_path.includes('http') ? datosUsuario.dealer?.logo_path : 'https://cdn.autosmotos.es/'+datosUsuario.dealer?.logo_path : '/assets/img/logo.svg'" alt="">
+          </div>
 
+          <input type="file"
+           id="file"
+           (change)="getFile($event)" multiple="false" accept="image/*" style="display: none;">
+          
+          <div *ngIf="datosUsuario?.type == 'Profesional'" class="form-row align-items-end" >
+                
+                
+              
+                <br>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="company_name">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mail</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="email_address">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>CIF/NIF</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="vat_number">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ciudad</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="city">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Código postal</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="zip_code">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Teléfono</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="phone_number">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Pais</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="country">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Descripción</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="description">
+                      </mat-form-field>
+               
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput placeholder="Placeholder"  formControlName="dealer_address">
+                      </mat-form-field>
+               
+                </div>
+              </div>
         </form>
-     
       </div>
      
   
     </div>
-    <div fxLayout="row" fxLayoutAlign="end center" style="    text-align: right;">
-        <button [disabled]="formD.invalid" style="    border-radius: 20px;background: #ED1C24;color:white" mat-raised-button (click)="save()" >
+    <div fxLayout="row" fxLayoutAlign="end center" style="text-align: right;">
+        <button [disabled]="formD.invalid" style="border-radius: 20px;background: #ED1C24;color:white" mat-raised-button (click)="save()" >
             <span>GUARDAR CAMBIOS</span>
         </button>
     </div>

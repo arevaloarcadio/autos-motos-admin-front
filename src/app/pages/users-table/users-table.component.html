@@ -88,7 +88,7 @@
       <ng-container matColumnDef="user">
          <th mat-header-cell *matHeaderCellDef class="th-table"> Usuario </th>
         <td mat-cell *matCellDef="let element"> 
-          <img style="width:24px;height: 24px;" [src]="element.dealer?.logo_path ? 'https://cdn.autosmotos.es/'+element.dealer?.logo_path : 'assets/img/user-icon-header.svg'">&nbsp;&nbsp; 
+          <img style="width:24px;height: 24px;border-radius: 15px;" [src]="element.dealer?.logo_path ? element.dealer?.logo_path.includes('http') ? element.dealer?.logo_path : 'https://cdn.autosmotos.es/'+element.dealer?.logo_path : 'assets/img/user-icon-header.svg'">&nbsp;&nbsp; 
           {{element?.first_name}} {{element?.last_name}} 
           {{element.dealer?.company_name && element?.first_name != element.dealer?.company_name ? ( ' - ' + element.dealer?.company_name) : '' }}
        </td>
