@@ -77,28 +77,28 @@ export class UserService {
         var filter = ''
         
         if(type != null){
-            filter += '?filters[type]='+type
+            filter += '&filters[type]='+type
         }
         
         if(date_from != null){
-            filter += filter == '' ? '?dateStart='+date_from : '&dateStart='+date_from
+            filter += filter == '' ? '&dateStart='+date_from : '&dateStart='+date_from
         }
 
         if(date_to != null){
-            filter += filter == '' ? '?dateEnd='+date_to : '&dateEnd='+date_to
+            filter += filter == '' ? '&dateEnd='+date_to : '&dateEnd='+date_to
         }
         
         
         if(status != null){
-             filter += filter == '' ? '?filters[status]='+status : '&filters[status]='+status
+             filter += filter == '' ? '&filters[status]='+status : '&filters[status]='+status
         }
 
         if(params){
             
-            filter += filter == '' ? '?page='+params : '&page='+params
+            filter += filter == '' ? '&page='+params : '&page='+params
         }
 
-        const send = this.http.get(`${this.url}users${filter}`).toPromise()
+        const send = this.http.get(`${this.url}users?orderDirection=desc&orderBy=created_at${filter}`).toPromise()
         return send;
     }
 
@@ -107,7 +107,7 @@ export class UserService {
         var filter = ''
         
         if(type != null){
-            filter += '?filters[type]='+type
+            filter += '&filters[type]='+type
         }
         
         if(date_from != null){
@@ -124,7 +124,7 @@ export class UserService {
 
         if(filter_like != null){
             if(filter==''){
-                filter += '?filter_like='+filter_like 
+                filter += '&filter_like='+filter_like 
             }else{
                 filter += '&filter_like='+filter_like 
             }
@@ -143,13 +143,13 @@ export class UserService {
         filter += '&per_page='+per_page 
    }
 
-        const send = this.http.get(`${this.url}users${filter}`).toPromise()
+        const send = this.http.get(`${this.url}users?orderDirection=desc&orderBy=created_at${filter}`).toPromise()
         return send;
     }
 
     getNextPage(page:any, per_page:any, offset:any): Promise<any> {
-        let next = '?page='+ page + '&per_page='+ per_page 
-        const send = this.http.get(`${this.url}users${next}`).toPromise()
+        let next = '&page='+ page + '&per_page='+ per_page 
+        const send = this.http.get(`${this.url}users?orderDirection=desc&orderBy=created_at${next}`).toPromise()
         return send;
     }
 
