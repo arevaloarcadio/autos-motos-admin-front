@@ -28,17 +28,17 @@ export class AdsService {
         var filter = ''
         
         if(type != null){
-            filter += '?filters[type]='+type
+            filter += '&filters[type]='+type
         }
         
         if(date != null){
-            filter += filter == '' ? '?filters[created_at]='+date : '&filters[created_at]='+date
+            filter += filter == '' ? '&filters[created_at]='+date : '&filters[created_at]='+date
         }
         
         if(sort != null){
-             filter += filter == '' ? '?filters[status]='+sort : '&filters[status]='+sort
+             filter += filter == '' ? '&filters[status]='+sort : '&filters[status]='+sort
         }
-        return this.http.get<any[]>(`${this.url}ads${filter}`,{headers});
+        return this.http.get<any[]>(`${this.url}ads?orderDirection=desc&orderBy=created_at${filter}`,{headers});
         // const send = this.http.get(`${this.url}ads${filter}`).toPromise()
         // return send;
     }
@@ -72,7 +72,7 @@ export class AdsService {
         var filter = ''
         
         if(type != null){
-            filter += '?filters[type]='+type
+            filter += '&filters[type]='+type
         }
         
         if(date != null){
@@ -85,7 +85,7 @@ export class AdsService {
 
        if(filter_like != null){
             if(filter==''){
-                filter += '?filter_like='+filter_like 
+                filter += '&filter_like='+filter_like 
             }else{
                 filter += '&filter_like='+filter_like 
             }
@@ -94,7 +94,7 @@ export class AdsService {
 
        if(page != null){
         if(type==null){
-            filter+='?page='+page 
+            filter+='&page='+page 
         }else{
             filter += '&page='+page 
         }
@@ -104,14 +104,14 @@ export class AdsService {
         filter += '&per_page='+per_page 
    }
 
-        const send = this.http.get(`${this.url}ads${filter}`).toPromise()
+        const send = this.http.get(`${this.url}ads?orderDirection=desc&orderBy=created_at${filter}`).toPromise()
         return send;
     }
 
 
 
     GetUltimos(): Promise<any> {
-        const send = this.http.get(`${this.url}ads?orderBy=id&orderDirection=desc&per_page=15`).toPromise()
+        const send = this.http.get(`${this.url}ads?orderBy=created_at&orderDirection=desc&per_page=15`).toPromise()
         return send;
     }
 
