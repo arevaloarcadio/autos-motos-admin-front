@@ -1,0 +1,75 @@
+.category-content {
+  margin-top: 85px;
+  padding: 0px 25px;
+}
+
+.mat-tab-label.mat-tab-label-active {
+  padding: 5px;
+  background-color: transparent;
+  //background-color: white;
+  color: red;
+  font-weight: 700;
+}
+
+/* .mat-tab-label-container {
+  background-color: white;
+} */
+
+.mat-tab-body-content {
+  background-color: white;
+  padding: 20px;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: red;
+}
+
+.mat-expansion-panel-header-description, 
+.mat-expansion-indicator::after {
+  cursor: pointer;
+}
+
+.mat-expansion-panel-header:not([aria-disabled=true]) {
+  cursor: auto !important;
+}
+
+.myicon {
+  cursor: pointer;
+  margin: 5px 10px;
+  height: 20px !important;
+  width: 18px !important;
+  border-radius: 0px !important;
+}
+
+.mat-typography h3 {
+  margin: 0px;
+}
+
+.group-tittle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-select {
+  max-width: 300px;
+  padding: 15px 0px;
+}
+
+.group-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.model-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

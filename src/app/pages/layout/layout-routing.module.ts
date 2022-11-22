@@ -13,6 +13,7 @@ import { IndividualAdsComponent } from '../individual-ads/individual-ads.compone
 import { UsersTableComponent } from '../users-table/users-table.component';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { UserDetailsComponent } from '../user-details/user-details.component';
+import { CategoriesComponent } from '../categories/categories.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersTableComponent
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent
       },
       {
         path: 'user/edit/:user_id',

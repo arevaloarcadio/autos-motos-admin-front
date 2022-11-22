@@ -1,0 +1,75 @@
+<div class="category-content">
+  <div class="row">
+    <div class="col-md-8">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <p class="title-dashboard" style="margin-left: 35px;margin-top: -50px;"></p>
+    </div>
+    <br>
+  </div>
+
+  <div class="group-tittle">
+    <p class="title-dashboard">Categories</p>
+    <button class="create-ads" (click)="myButton()" >CREAR GRUPO</button>
+  </div>
+
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab label="Grupos">
+      <ng-container *ngIf="(asyncTabs | async) === null; else first">
+        Loading tabs...
+      </ng-container>
+      <ng-template #first>
+
+        <div class="group-select">
+          <label>Marca</label>
+          <ng-select [(ngModel)]="selectedModel" notFoundText="Sin Resultados" placeholder="Selecciona la marca"
+            [clearable]="false">
+            <ng-option *ngFor="let marca of marcas" [value]="marca.id">
+              {{marca.name}}
+            </ng-option>
+          </ng-select>
+        </div>
+        <mat-accordion>
+          <mat-expansion-panel #matExpansionPanel1>
+            <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel1, $event)">
+              <div class="group-list">
+                <h3>Group Name</h3>
+                <div>
+                  <lucide-icon name="edit" class="myicon"></lucide-icon>
+                  <lucide-icon name="plus-circle" class="myicon"></lucide-icon>
+                  <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+                </div>
+              </div>
+            </mat-expansion-panel-header>
+            <div class="model-list">Model id #1
+              <div>
+                <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+              </div>
+            </div>
+            <div class="model-list">Model id #1
+              <div>
+                <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+              </div>
+            </div>
+            <div class="model-list">Model id #3
+              <div>
+                <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="Marcas">
+      <ng-container *ngIf="(asyncTabs2 | async) === null; else second">
+        Loading tabs...
+      </ng-container>
+      <ng-template #second>
+        <div *ngFor="let tab of asyncTabs2 | async">
+          {{tab.content}}
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
