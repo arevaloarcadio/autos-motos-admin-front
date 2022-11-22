@@ -31,7 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { LucideAngularModule, icons } from 'lucide-angular';
 //import {MatProgressBarModule} from '@angular/material'
 
 
@@ -67,6 +67,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatPaginatorModule,
     MatProgressBarModule,
     MatMenuModule,
+    LucideAngularModule.pick(icons),
     InfiniteScrollModule
   ],
   providers: [  

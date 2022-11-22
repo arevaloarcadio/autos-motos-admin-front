@@ -20,7 +20,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SignupProfComponent } from './pages/signup-prof/signup-prof.component';
 import { SellerLayoutComponent } from './pages/layout/seller-layout/seller-layout.component';
 import { InicioComponent } from './pages/seller/inicio/inicio.component';*/
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserFormComponent } from './pages/user-form/user-form.component';
@@ -98,6 +98,7 @@ import { CreateModalComponent } from './pages/categories/create-modal/create-mod
     MatExpansionModule,
     NgSelectModule,
     MatDialogModule,
+    MatSlideToggleModule,
     LucideAngularModule.pick(icons),
     ToastrModule.forRoot(),
     SharedModule

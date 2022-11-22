@@ -1,259 +1,224 @@
 <div>
-    <body>
-      <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-        <div class="sidebar-brand d-none d-md-flex">
-          <input type="text" style="border-width: 0px;" name="search" class="input-search" placeholder="Buscar en menú">
-        </div>
-        <div style="background: #fff"><br></div>
-        <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="" style="overflow: hidden;background: #FFFFFF;box-shadow: 4px 0px 0px rgba(0, 0, 0, 0.2); ">
-          <li class="nav-item">
-            <a class="nav-link" style="cursor:pointer"  [ngClass]="route.url === '/admin' ? 'active' : ''" (click)="redirect('admin')">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.29289 0.292893C9.68342 -0.0976311 10.3166 -0.0976311 10.7071 0.292893L19.7071 9.29289C20.0976 9.68342 20.0976 10.3166 19.7071 10.7071C19.3166 11.0976 18.6834 11.0976 18.2929 10.7071L18 10.4142V18C18 19.1046 17.1046 20 16 20H4C2.89543 20 2 19.1046 2 18V10.4142L1.70711 10.7071C1.31658 11.0976 0.683417 11.0976 0.292893 10.7071C-0.0976311 10.3166 -0.0976311 9.68342 0.292893 9.29289L9.29289 0.292893ZM4 8.41421V18H7V14C7 12.8954 7.89543 12 9 12H11C12.1046 12 13 12.8954 13 14V18H16V8.41421L10 2.41421L4 8.41421ZM11 18V14H9V18H11Z" [attr.fill]="route.url === '/admin' ? '#FFFFFF' : '#787878'"/>
-                </svg>&nbsp;&nbsp; Dashboard
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <cdk-accordion class="example-accordion">
-              <cdk-accordion-item
-                #accordionItem="cdkAccordionItem"
-                class="example-accordion-item"
-                role="button"
-                tabindex="0"
-                [attr.id]="'accordion-header-1'"
-                [attr.aria-expanded]="accordionItem.expanded"
-                [attr.aria-controls]="'accordion-body-1'">
-                  <div class="nav-link" [ngClass]="route.url === '/products' ? 'active' : ''" >
-                    <div class="example-accordion-item-header" style="cursor:pointer"  (click)="accordionItem.toggle()">
-                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.75293C0 1.20064 0.447715 0.75293 1 0.75293H3C3.47668 0.75293 3.8871 1.08939 3.98058 1.55681L4.2198 2.75293H19C19.3466 2.75293 19.6684 2.93238 19.8507 3.2272C20.0329 3.52202 20.0494 3.89015 19.8944 4.20014L15.8944 12.2001C15.725 12.5389 15.3788 12.7529 15 12.7529H5.41421L3.41421 14.7529L15 14.7529C16.6569 14.7529 18 16.0961 18 17.7529C18 19.4098 16.6569 20.7529 15 20.7529C13.3431 20.7529 12 19.4098 12 17.7529C12 17.4023 12.0602 17.0657 12.1707 16.7529H7.82929C7.93985 17.0657 8 17.4023 8 17.7529C8 19.4098 6.65685 20.7529 5 20.7529C3.34315 20.7529 2 19.4098 2 17.7529C2 17.2768 2.11092 16.8266 2.30832 16.4267C1.3292 15.7763 1.04054 14.2982 2 13.3387L3.91446 11.4243L2.1802 2.75293H1C0.447715 2.75293 0 2.30521 0 1.75293ZM5.8198 10.7529H14.382L17.382 4.75293H4.6198L5.8198 10.7529ZM5 16.7529C4.44772 16.7529 4 17.2006 4 17.7529C4 18.3052 4.44772 18.7529 5 18.7529C5.55228 18.7529 6 18.3052 6 17.7529C6 17.2006 5.55228 16.7529 5 16.7529ZM15 16.7529C14.4477 16.7529 14 17.2006 14 17.7529C14 18.3052 14.4477 18.7529 15 18.7529C15.5523 18.7529 16 18.3052 16 17.7529C16 17.2006 15.5523 16.7529 15 16.7529Z" [attr.fill]="route.url === '/products' ? '#FFFFFF' : '#787878'"/>
-                        </svg>&nbsp;&nbsp; Productos
-                      <svg class="nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-                      </svg> 
-                    </div>
-                  </div>
-               
-                <div
-                  class="example-accordion-item-body"
-                  role="region"
-                  [style.display]="accordionItem.expanded ? '' : 'none'"
-                  [attr.id]="'accordion-body-1'"
-                  [attr.aria-labelledby]="'accordion-header-1'" style="color: #787878">
-                    <div  class="item-menu-acordion" >
-                      <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="3" cy="3.75293" r="3" fill="#ED1C24"/>
-                      </svg>
-                      &nbsp;
-                      Todos los productos
-                    </div>
-                    <div class="item-menu-acordion"  [ngClass]="route.url === '/admin/products-individual-ads' ? 'active' : ''" style="cursor:pointer" (click)="redirect('admin/products-individual-ads')">
-                      <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="3" cy="3.75293" r="3" [attr.fill]="route.url === '/admin/products-individual-ads' ? '#FFFFFF' : '#ED1C24'"/>
-                      </svg>
-                      &nbsp;
-                      Anuncios individuales
-                    </div>
-                    <div class="item-menu-acordion" [ngClass]="route.url === '/admin/products-massive-import' ? 'active' : ''" style="cursor:pointer"  (click)="redirect('admin/products-massive-import')">
-                      <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="3" cy="3.75293" r="3" [attr.fill]="route.url === '/admin/products-massive-import' ? '#FFFFFF' : '#ED1C24'" />
-                      </svg>
-                      &nbsp;
-                      Importación masiva
-                    </div>
-                </div>
-              </cdk-accordion-item>
-            </cdk-accordion>
-          </li>
-
-          <li class="nav-item" >
-            <a class="nav-link" [ngClass]="route.url === '/admin/users' ? 'active' : ''" style="cursor:pointer"  (click)="redirect('admin/users')">
-              <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 2.75293C5.34315 2.75293 4 4.09608 4 5.75293C4 7.40978 5.34315 8.75293 7 8.75293C7.89152 8.75293 8.69221 8.36405 9.24169 7.74667C9.24685 7.74069 9.25209 7.73476 9.2574 7.72888C9.71977 7.20109 10 6.50973 10 5.75293C10 4.99611 9.71975 4.30474 9.25737 3.77695C9.25208 3.77109 9.24686 3.76518 9.24172 3.75922C8.69223 3.14182 7.89153 2.75293 7 2.75293ZM10.0001 1.75264C9.16442 1.1249 8.12565 0.75293 7 0.75293C4.23858 0.75293 2 2.99151 2 5.75293C2 8.51435 4.23858 10.7529 7 10.7529C8.12565 10.7529 9.16442 10.381 10.0001 9.75322C10.8354 10.3804 11.8745 10.7529 13 10.7529C15.7614 10.7529 18 8.51435 18 5.75293C18 2.99151 15.7614 0.75293 13 0.75293C11.8745 0.75293 10.8354 1.12551 10.0001 1.75264ZM11.3338 3.25761C11.7575 3.99198 12 4.84414 12 5.75293C12 6.66172 11.7575 7.51388 11.3338 8.24825C11.8107 8.56749 12.3834 8.75293 13 8.75293C14.6569 8.75293 16 7.40978 16 5.75293C16 4.09607 14.6569 2.75293 13 2.75293C12.3834 2.75293 11.8107 2.93837 11.3338 3.25761ZM7 13.7529C4.23858 13.7529 2 15.9915 2 18.7529H12C12 15.9915 9.76142 13.7529 7 13.7529ZM14 18.7529H18C18 15.9915 15.7614 13.7529 13 13.7529C12.6568 13.7529 12.3221 13.7874 11.999 13.853C13.2368 15.1156 14 16.8451 14 18.7529ZM10.0003 12.4267C9.09095 11.9947 8.07371 11.7529 7 11.7529C3.13401 11.7529 0 14.8869 0 18.7529V19.7529C0 20.3052 0.447715 20.7529 1 20.7529H19C19.5523 20.7529 20 20.3052 20 19.7529V18.7529C20 14.8869 16.866 11.7529 13 11.7529C11.928 11.7529 10.9103 11.9945 10.0003 12.4267Z"  [attr.fill]="route.url === '/admin/users' ? '#FFFFFF' : '#787878'"  />
-              </svg>&nbsp;&nbsp; Usuarios
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link">
-              <svg width="16" height="21" viewBox="0 0 16 21" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 2.75293C2.44772 2.75293 2 3.20064 2 3.75293V17.7529C2 18.3052 2.44772 18.7529 3 18.7529H13C13.5523 18.7529 14 18.3052 14 17.7529L14 8.16714L8.58579 2.75293H3ZM0 3.75293C0 2.09608 1.34315 0.75293 3 0.75293H8.58579C9.11622 0.75293 9.62493 0.963643 10 1.33872L15.4142 6.75293C15.7893 7.128 16 7.63671 16 8.16714V17.7529C16 19.4098 14.6569 20.7529 13 20.7529H3C1.34315 20.7529 0 19.4098 0 17.7529V3.75293ZM11 8.75293C11.5523 8.75293 12 9.20065 12 9.75293V15.7529C12 16.3052 11.5523 16.7529 11 16.7529C10.4477 16.7529 10 16.3052 10 15.7529V9.75293C10 9.20065 10.4477 8.75293 11 8.75293ZM8 10.7529C8.55228 10.7529 9 11.2006 9 11.7529V15.7529C9 16.3052 8.55228 16.7529 8 16.7529C7.44772 16.7529 7 16.3052 7 15.7529V11.7529C7 11.2006 7.44772 10.7529 8 10.7529ZM5 12.7529C5.55228 12.7529 6 13.2006 6 13.7529V15.7529C6 16.3052 5.55228 16.7529 5 16.7529C4.44772 16.7529 4 16.3052 4 15.7529V13.7529C4 13.2006 4.44772 12.7529 5 12.7529Z" fill="#787878"/>
-                </svg>&nbsp;&nbsp;&nbsp; Reportes
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link">
-              <svg width="20" height="21" viewBox="0 0 20 21" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.68014 5.84729C2.62708 7.20197 2 8.90422 2 10.7529C2 12.6016 2.62708 14.3039 3.68014 15.6586L5.8284 13.5103C5.30488 12.7199 5 11.772 5 10.7529C5 9.73385 5.30488 8.78597 5.8284 7.99554L3.68014 5.84729ZM5.09436 4.43307L7.24261 6.58133C8.03304 6.05781 8.98092 5.75293 10 5.75293C11.0191 5.75293 11.967 6.05781 12.7574 6.58133L14.9056 4.43307C13.551 3.38001 11.8487 2.75293 10 2.75293C8.15129 2.75293 6.44904 3.38001 5.09436 4.43307ZM16.3199 5.84729L14.1716 7.99554C14.6951 8.78597 15 9.73385 15 10.7529C15 11.772 14.6951 12.7199 14.1716 13.5103L16.3199 15.6586C17.3729 14.3039 18 12.6016 18 10.7529C18 8.90422 17.3729 7.20197 16.3199 5.84729ZM14.9056 17.0728L12.7574 14.9245C11.967 15.4481 11.0191 15.7529 10 15.7529C8.98092 15.7529 8.03304 15.4481 7.24261 14.9245L5.09436 17.0728C6.44904 18.1259 8.15129 18.7529 10 18.7529C11.8487 18.7529 13.551 18.1259 14.9056 17.0728ZM0 10.7529C0 5.23008 4.47715 0.75293 10 0.75293C15.5228 0.75293 20 5.23008 20 10.7529C20 16.2758 15.5228 20.7529 10 20.7529C4.47715 20.7529 0 16.2758 0 10.7529ZM7 10.7529C7 12.4098 8.34315 13.7529 10 13.7529C11.6569 13.7529 13 12.4098 13 10.7529C13 9.09608 11.6569 7.75293 10 7.75293C8.34315 7.75293 7 9.09608 7 10.7529Z" fill="#787878"/>
-                </svg>&nbsp;&nbsp;&nbsp; Soporte
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-          
-
-          <li class="nav-item">
-            <a class="nav-link">
-              <svg width="20" height="17" viewBox="0 0 20 17" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.000106305 3.75293C0.000106305 2.09608 1.34325 0.75293 3.00011 0.75293H17.0001C18.657 0.75293 20.0001 2.09608 20.0001 3.75293V4.73741C20.0002 4.74715 20.0002 4.75688 20.0001 4.76661V13.7529C20.0001 15.4098 18.657 16.7529 17.0001 16.7529H3.00011C1.34325 16.7529 0.000106305 15.4098 0.000106305 13.7529V4.7666C-3.53157e-05 4.75688 -3.55541e-05 4.74715 0.000106305 4.73742V3.75293ZM2.00011 6.62145V13.7529C2.00011 14.3052 2.44782 14.7529 3.00011 14.7529H17.0001C17.5524 14.7529 18.0001 14.3052 18.0001 13.7529V6.62145L11.6642 10.8454C10.6565 11.5172 9.3437 11.5172 8.33601 10.8454L2.00011 6.62145ZM18.0001 4.21775L10.5548 9.18128C10.2189 9.40521 9.78131 9.40521 9.44541 9.18128L2.00011 4.21775V3.75293C2.00011 3.20064 2.44782 2.75293 3.00011 2.75293H17.0001C17.5524 2.75293 18.0001 3.20064 18.0001 3.75293V4.21775Z" fill="#787878"/>
-                </svg>
- &nbsp;&nbsp; Correos electrónicos
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link">
-             <svg width="20" height="21" viewBox="0 0 20 21" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.92925 1.02553C6.46271 0.882592 7.01105 1.19917 7.15399 1.73264L7.93045 4.63042C8.07339 5.16388 7.75681 5.71222 7.22334 5.85516C6.68987 5.9981 6.14154 5.68152 5.9986 5.14806L5.22214 2.25028C5.0792 1.71681 5.39578 1.16848 5.92925 1.02553ZM13.6566 3.09612C14.0472 3.48664 14.0472 4.11981 13.6566 4.51033L11.5353 6.63165C11.1448 7.02218 10.5116 7.02218 10.1211 6.63165C9.73059 6.24113 9.73059 5.60796 10.1211 5.21744L12.2424 3.09612C12.633 2.7056 13.2661 2.7056 13.6566 3.09612ZM0.272359 6.68238C0.415301 6.14891 0.963638 5.83233 1.4971 5.97527L4.39488 6.75173C4.92835 6.89467 5.24493 7.44301 5.10199 7.97647C4.95905 8.50994 4.41071 8.82652 3.87724 8.68358L0.979466 7.90712C0.446 7.76418 0.129418 7.21585 0.272359 6.68238ZM7.29273 8.04583C7.56745 7.7711 7.97644 7.68037 8.34158 7.81314L19.3416 11.8131C19.7313 11.9549 19.9931 12.3224 19.9997 12.7371C20.0063 13.1517 19.7563 13.5274 19.3712 13.6814L15.7793 15.1182L19.7069 19.0458C20.0975 19.4364 20.0975 20.0695 19.7069 20.46C19.3164 20.8506 18.6833 20.8506 18.2927 20.46L14.3651 16.5324L12.9283 20.1243C12.7743 20.5094 12.3986 20.7594 11.984 20.7528C11.5693 20.7462 11.2018 20.4844 11.06 20.0947L7.06004 9.09468C6.92726 8.72954 7.018 8.32056 7.29273 8.04583ZM9.67193 10.425L12.0443 16.9491L13.0714 14.3815C13.173 14.1274 13.3743 13.9261 13.6284 13.8245L16.196 12.7974L9.67193 10.425ZM5.87857 10.8742C6.26909 11.2647 6.26909 11.8979 5.87857 12.2884L3.75725 14.4097C3.36673 14.8003 2.73356 14.8003 2.34304 14.4097C1.95251 14.0192 1.95251 13.386 2.34304 12.9955L4.46436 10.8742C4.85488 10.4837 5.48805 10.4837 5.87857 10.8742Z" fill="#787878"/>
-              </svg>
- &nbsp;&nbsp; Suscripciones
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link">
-              <svg width="22" height="19" viewBox="0 0 22 19" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 2.75293C9.89543 2.75293 9 3.64836 9 4.75293C9 5.8575 9.89543 6.75293 11 6.75293C12.1046 6.75293 13 5.8575 13 4.75293C13 3.64836 12.1046 2.75293 11 2.75293ZM7 4.75293C7 2.54379 8.79086 0.75293 11 0.75293C13.2091 0.75293 15 2.54379 15 4.75293C15 6.96207 13.2091 8.75293 11 8.75293C8.79086 8.75293 7 6.96207 7 4.75293ZM4 6.75293C3.44772 6.75293 3 7.20064 3 7.75293C3 8.30521 3.44772 8.75293 4 8.75293C4.55228 8.75293 5 8.30521 5 7.75293C5 7.20064 4.55228 6.75293 4 6.75293ZM1 7.75293C1 6.09608 2.34315 4.75293 4 4.75293C5.65685 4.75293 7 6.09608 7 7.75293C7 9.40978 5.65685 10.7529 4 10.7529C2.34315 10.7529 1 9.40978 1 7.75293ZM18 6.75293C17.4477 6.75293 17 7.20064 17 7.75293C17 8.30521 17.4477 8.75293 18 8.75293C18.5523 8.75293 19 8.30521 19 7.75293C19 7.20064 18.5523 6.75293 18 6.75293ZM15 7.75293C15 6.09608 16.3431 4.75293 18 4.75293C19.6569 4.75293 21 6.09608 21 7.75293C21 9.40978 19.6569 10.7529 18 10.7529C16.3431 10.7529 15 9.40978 15 7.75293ZM11 11.7529C9.31743 11.7529 7.87516 12.7921 7.28463 14.2674C7.10133 14.7254 7 15.2261 7 15.7529V16.7529H15V15.7529C15 15.2261 14.8987 14.7254 14.7154 14.2674C14.1248 12.7921 12.6826 11.7529 11 11.7529ZM17 16.7529H20V15.7529C20 14.6484 19.1046 13.7529 18 13.7529C17.5439 13.7529 17.1237 13.905 16.7867 14.1627C16.9259 14.6699 17 15.2034 17 15.7529V16.7529ZM15.9286 12.3306C14.8455 10.7735 13.0427 9.75293 11 9.75293C8.9573 9.75293 7.15455 10.7735 6.07138 12.3306C5.46741 11.9643 4.75829 11.7529 4 11.7529C1.79086 11.7529 0 13.5438 0 15.7529V17.7529C0 18.3052 0.447715 18.7529 1 18.7529H21C21.5523 18.7529 22 18.3052 22 17.7529V15.7529C22 13.5438 20.2091 11.7529 18 11.7529C17.2417 11.7529 16.5326 11.9643 15.9286 12.3306ZM5.21328 14.1627C4.87632 13.905 4.45607 13.7529 4 13.7529C2.89543 13.7529 2 14.6484 2 15.7529V16.7529H5V15.7529C5 15.2034 5.07414 14.6699 5.21328 14.1627Z" fill="#787878"/>
-                </svg>
-                 &nbsp;&nbsp; Personal
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link">
-              <svg width="20" height="21" viewBox="0 0 20 21" fill="none" style="cursor:pointer"  xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.35285 2.83432C8.02658 0.0591297 11.9734 0.0591342 12.6471 2.83432C12.7628 3.31083 13.3088 3.53695 13.7275 3.28181C16.1662 1.79586 18.9571 4.58669 17.4711 7.02544C17.216 7.44418 17.4421 7.9901 17.9186 8.10578C20.6938 8.77951 20.6938 12.7263 17.9186 13.4001C17.4421 13.5158 17.216 14.0617 17.4711 14.4804C18.9571 16.9192 16.1662 19.71 13.7275 18.224C13.3088 17.9689 12.7628 18.195 12.6471 18.6715C11.9734 21.4467 8.02658 21.4467 7.35285 18.6715C7.23717 18.195 6.69125 17.9689 6.27252 18.224C3.83376 19.71 1.04293 16.9192 2.52889 14.4804C2.78402 14.0617 2.5579 13.5158 2.08139 13.4001C-0.693795 12.7263 -0.6938 8.77951 2.08139 8.10578C2.5579 7.9901 2.78402 7.44418 2.52888 7.02544C1.04293 4.58669 3.83376 1.79585 6.27252 3.28181C6.69125 3.53695 7.23717 3.31082 7.35285 2.83432ZM10.7036 3.30616C10.5245 2.56852 9.47547 2.56852 9.2964 3.30615C8.86118 5.09889 6.80726 5.94966 5.23186 4.98974C4.58365 4.59478 3.84185 5.33657 4.23681 5.98478C5.19673 7.56019 4.34596 9.61411 2.55322 10.0493C1.81559 10.2284 1.81559 11.2775 2.55323 11.4565C4.34596 11.8918 5.19673 13.9457 4.23682 15.5211C3.84186 16.1693 4.58365 16.9111 5.23186 16.5161C6.80726 15.5562 8.86118 16.407 9.2964 18.1997C9.47547 18.9373 10.5245 18.9373 10.7036 18.1997C11.1388 16.407 13.1927 15.5562 14.7681 16.5161C15.4164 16.9111 16.1581 16.1693 15.7632 15.5211C14.8033 13.9457 15.654 11.8918 17.4468 11.4565C18.1844 11.2775 18.1844 10.2284 17.4468 10.0493C15.654 9.61411 14.8033 7.56019 15.7632 5.98478C16.1581 5.33657 15.4164 4.59478 14.7681 4.98975C13.1927 5.94966 11.1388 5.09889 10.7036 3.30616ZM10 8.75293C8.89543 8.75293 8 9.64836 8 10.7529C8 11.8575 8.89543 12.7529 10 12.7529C11.1046 12.7529 12 11.8575 12 10.7529C12 9.64836 11.1046 8.75293 10 8.75293ZM6 10.7529C6 8.54379 7.79086 6.75293 10 6.75293C12.2091 6.75293 14 8.54379 14 10.7529C14 12.9621 12.2091 14.7529 10 14.7529C7.79086 14.7529 6 12.9621 6 10.7529Z" fill="#787878"/>
-              </svg>
-               &nbsp;&nbsp; Configuración
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-              </svg> 
-            </a>
-          </li>
-
-
-          
-        </ul>
-        <!--<button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>-->
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+        <input type="text" style="border-width: 0px;" name="search" class="input-search" placeholder="Buscar en menú">
       </div>
-      <div class="wrapper d-flex flex-column min-vh-100 bg-light" >
-        <header class="header header-sticky mb-4" style="position: fixed !important ; width: 100% !important;box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);height: 85px">
-          <div class="container-fluid">
-            <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
-              <img src="assets/img/Tab.svg">
-            </button><a class="header-brand d-md-none" href="#" style="display: none;">
-             <img src="assets/img/Tab.svg"></a>
-            <ul class="header-nav d-none d-md-flex">
-              <img src="../../../assets/img/logo2-login.svg" style="width: 230px;">
-            </ul>
-            
-            <!--<ul class="header-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#">
-                  <svg class="icon icon-lg">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-                  </svg></a></li>
-              <li class="nav-item"><a class="nav-link" href="#">
-                  <svg class="icon icon-lg">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
-                  </svg></a></li>
-              <li class="nav-item"><a class="nav-link" href="#">
-                  <svg class="icon icon-lg">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-                  </svg></a>k,ljfwlejfpwjepf[p</li>
-            </ul>-->
-            <ul class="c-header-nav ml-auto mr-4">
-              <img src="assets/img/notification.svg">&nbsp;&nbsp;&nbsp;
-              <img src="assets/img/user-icon-header.svg">&nbsp;&nbsp;&nbsp;
-              
-             <p class="text-user-header" style="margin-top: 12px;" [matMenuTriggerFor]="menu" >
-               {{user.first_name }} {{user.last_name}}
-             </p>
+      <div style="background: #fff"><br></div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar=""
+        style="overflow: hidden;background: #FFFFFF;box-shadow: 4px 0px 0px rgba(0, 0, 0, 0.2); ">
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer" [ngClass]="route.url === '/admin' ? 'active' : ''"
+            (click)="redirect('admin')">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.29289 0.292893C9.68342 -0.0976311 10.3166 -0.0976311 10.7071 0.292893L19.7071 9.29289C20.0976 9.68342 20.0976 10.3166 19.7071 10.7071C19.3166 11.0976 18.6834 11.0976 18.2929 10.7071L18 10.4142V18C18 19.1046 17.1046 20 16 20H4C2.89543 20 2 19.1046 2 18V10.4142L1.70711 10.7071C1.31658 11.0976 0.683417 11.0976 0.292893 10.7071C-0.0976311 10.3166 -0.0976311 9.68342 0.292893 9.29289L9.29289 0.292893ZM4 8.41421V18H7V14C7 12.8954 7.89543 12 9 12H11C12.1046 12 13 12.8954 13 14V18H16V8.41421L10 2.41421L4 8.41421ZM11 18V14H9V18H11Z"
+                [attr.fill]="route.url === '/admin' ? '#FFFFFF' : '#787878'" />
+            </svg>&nbsp;&nbsp; Dashboard
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
 
-        
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item style="cursor:pointer"  (click)="logout()" >
-            <span>Cerrar Sesión</span>
-          </button>
-        </mat-menu>  
-
-            <!--
-            <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link">
-                <svg class="c-icon">
-                  <use xlink:href="{{ url('/icons/sprites/free.svg#cil-bell') }}"></use>
-                </svg></a></li>
-            <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link">
-                <svg class="c-icon">
-                  <use xlink:href="{{ url('/icons/sprites/free.svg#cil-list-rich') }}"></use>
-                </svg></a></li>
-            <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link">
-                <svg class="c-icon">
-                  <use xlink:href="{{ url('/icons/sprites/free.svg#cil-envelope-open') }}"></use>
-                </svg></a></li>
-            -->
-            
-            <!--<li class="c-header-nav-item dropdown" style="display: block;">
-
-              <button class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true" style="background: transparent;border: 0"  onclick ="document.querySelector('#dropdown-menu-1').style.display = document.querySelector('#dropdown-menu-1').style.display == 'block' ? 'none' : 'block' ">
-                  <div class="c-avatar"><img class="c-avatar-img" src="/assets/img/user_example.jpg" alt="nada"></div>
-              </button>
-           
-              
-              <div id="dropdown-menu-1" style=" margin-left: -138px;" onblur="document.querySelector('#dropdown-menu-1').style.display = 'none'" class="dropdown-menu dropdown-menu-right pt-0" >
-                <div class="dropdown-header bg-light py-2">
-                    <strong>Cuenta</strong>
+        <li class="nav-item">
+          <cdk-accordion class="example-accordion">
+            <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button"
+              tabindex="0" [attr.id]="'accordion-header-1'" [attr.aria-expanded]="accordionItem.expanded"
+              [attr.aria-controls]="'accordion-body-1'">
+              <div class="nav-link" [ngClass]="route.url === '/products' ? 'active' : ''">
+                <div class="example-accordion-item-header" style="cursor:pointer" (click)="accordionItem.toggle()">
+                  <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0 1.75293C0 1.20064 0.447715 0.75293 1 0.75293H3C3.47668 0.75293 3.8871 1.08939 3.98058 1.55681L4.2198 2.75293H19C19.3466 2.75293 19.6684 2.93238 19.8507 3.2272C20.0329 3.52202 20.0494 3.89015 19.8944 4.20014L15.8944 12.2001C15.725 12.5389 15.3788 12.7529 15 12.7529H5.41421L3.41421 14.7529L15 14.7529C16.6569 14.7529 18 16.0961 18 17.7529C18 19.4098 16.6569 20.7529 15 20.7529C13.3431 20.7529 12 19.4098 12 17.7529C12 17.4023 12.0602 17.0657 12.1707 16.7529H7.82929C7.93985 17.0657 8 17.4023 8 17.7529C8 19.4098 6.65685 20.7529 5 20.7529C3.34315 20.7529 2 19.4098 2 17.7529C2 17.2768 2.11092 16.8266 2.30832 16.4267C1.3292 15.7763 1.04054 14.2982 2 13.3387L3.91446 11.4243L2.1802 2.75293H1C0.447715 2.75293 0 2.30521 0 1.75293ZM5.8198 10.7529H14.382L17.382 4.75293H4.6198L5.8198 10.7529ZM5 16.7529C4.44772 16.7529 4 17.2006 4 17.7529C4 18.3052 4.44772 18.7529 5 18.7529C5.55228 18.7529 6 18.3052 6 17.7529C6 17.2006 5.55228 16.7529 5 16.7529ZM15 16.7529C14.4477 16.7529 14 17.2006 14 17.7529C14 18.3052 14.4477 18.7529 15 18.7529C15.5523 18.7529 16 18.3052 16 17.7529C16 17.2006 15.5523 16.7529 15 16.7529Z"
+                      [attr.fill]="route.url === '/products' ? '#FFFFFF' : '#787878'" />
+                  </svg>&nbsp;&nbsp; Productos
+                  <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+                  </svg>
                 </div>
-                <a class="dropdown-item"  href="/">
-                 Perfil
-                </a>
-                <div class="dropdown-divider"></div>
-                <form action="/" method="POST">
-                  
-                  <button type="submit" class="btn btn-ghost-dark btn-block">
-                    Cerrar Sesion
-                  </button>
-                </form>
               </div>
-            </li>-->
+
+              <div class="example-accordion-item-body" role="region"
+                [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-1'"
+                [attr.aria-labelledby]="'accordion-header-1'" style="color: #787878">
+                <div class="item-menu-acordion">
+                  <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none"
+                    style="cursor:pointer" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3" cy="3.75293" r="3" fill="#ED1C24" />
+                  </svg>
+                  &nbsp;
+                  Todos los productos
+                </div>
+                <div class="item-menu-acordion"
+                  [ngClass]="route.url === '/admin/products-individual-ads' ? 'active' : ''" style="cursor:pointer"
+                  (click)="redirect('admin/products-individual-ads')">
+                  <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3" cy="3.75293" r="3"
+                      [attr.fill]="route.url === '/admin/products-individual-ads' ? '#FFFFFF' : '#ED1C24'" />
+                  </svg>
+                  &nbsp;
+                  Anuncios individuales
+                </div>
+                <div class="item-menu-acordion"
+                  [ngClass]="route.url === '/admin/products-massive-import' ? 'active' : ''" style="cursor:pointer"
+                  (click)="redirect('admin/products-massive-import')">
+                  <svg class="item-menu-acordion-posistion" width="6" height="7" viewBox="0 0 6 7" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3" cy="3.75293" r="3"
+                      [attr.fill]="route.url === '/admin/products-massive-import' ? '#FFFFFF' : '#ED1C24'" />
+                  </svg>
+                  &nbsp;
+                  Importación masiva
+                </div>
+              </div>
+            </cdk-accordion-item>
+          </cdk-accordion>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="route.url === '/admin/users' ? 'active' : ''" style="cursor:pointer"
+            (click)="redirect('admin/users')">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7 2.75293C5.34315 2.75293 4 4.09608 4 5.75293C4 7.40978 5.34315 8.75293 7 8.75293C7.89152 8.75293 8.69221 8.36405 9.24169 7.74667C9.24685 7.74069 9.25209 7.73476 9.2574 7.72888C9.71977 7.20109 10 6.50973 10 5.75293C10 4.99611 9.71975 4.30474 9.25737 3.77695C9.25208 3.77109 9.24686 3.76518 9.24172 3.75922C8.69223 3.14182 7.89153 2.75293 7 2.75293ZM10.0001 1.75264C9.16442 1.1249 8.12565 0.75293 7 0.75293C4.23858 0.75293 2 2.99151 2 5.75293C2 8.51435 4.23858 10.7529 7 10.7529C8.12565 10.7529 9.16442 10.381 10.0001 9.75322C10.8354 10.3804 11.8745 10.7529 13 10.7529C15.7614 10.7529 18 8.51435 18 5.75293C18 2.99151 15.7614 0.75293 13 0.75293C11.8745 0.75293 10.8354 1.12551 10.0001 1.75264ZM11.3338 3.25761C11.7575 3.99198 12 4.84414 12 5.75293C12 6.66172 11.7575 7.51388 11.3338 8.24825C11.8107 8.56749 12.3834 8.75293 13 8.75293C14.6569 8.75293 16 7.40978 16 5.75293C16 4.09607 14.6569 2.75293 13 2.75293C12.3834 2.75293 11.8107 2.93837 11.3338 3.25761ZM7 13.7529C4.23858 13.7529 2 15.9915 2 18.7529H12C12 15.9915 9.76142 13.7529 7 13.7529ZM14 18.7529H18C18 15.9915 15.7614 13.7529 13 13.7529C12.6568 13.7529 12.3221 13.7874 11.999 13.853C13.2368 15.1156 14 16.8451 14 18.7529ZM10.0003 12.4267C9.09095 11.9947 8.07371 11.7529 7 11.7529C3.13401 11.7529 0 14.8869 0 18.7529V19.7529C0 20.3052 0.447715 20.7529 1 20.7529H19C19.5523 20.7529 20 20.3052 20 19.7529V18.7529C20 14.8869 16.866 11.7529 13 11.7529C11.928 11.7529 10.9103 11.9945 10.0003 12.4267Z"
+                [attr.fill]="route.url === '/admin/users' ? '#FFFFFF' : '#787878'" />
+            </svg>&nbsp;&nbsp; Usuarios
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" style="cursor:pointer"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M3 2.75293C2.44772 2.75293 2 3.20064 2 3.75293V17.7529C2 18.3052 2.44772 18.7529 3 18.7529H13C13.5523 18.7529 14 18.3052 14 17.7529L14 8.16714L8.58579 2.75293H3ZM0 3.75293C0 2.09608 1.34315 0.75293 3 0.75293H8.58579C9.11622 0.75293 9.62493 0.963643 10 1.33872L15.4142 6.75293C15.7893 7.128 16 7.63671 16 8.16714V17.7529C16 19.4098 14.6569 20.7529 13 20.7529H3C1.34315 20.7529 0 19.4098 0 17.7529V3.75293ZM11 8.75293C11.5523 8.75293 12 9.20065 12 9.75293V15.7529C12 16.3052 11.5523 16.7529 11 16.7529C10.4477 16.7529 10 16.3052 10 15.7529V9.75293C10 9.20065 10.4477 8.75293 11 8.75293ZM8 10.7529C8.55228 10.7529 9 11.2006 9 11.7529V15.7529C9 16.3052 8.55228 16.7529 8 16.7529C7.44772 16.7529 7 16.3052 7 15.7529V11.7529C7 11.2006 7.44772 10.7529 8 10.7529ZM5 12.7529C5.55228 12.7529 6 13.2006 6 13.7529V15.7529C6 16.3052 5.55228 16.7529 5 16.7529C4.44772 16.7529 4 16.3052 4 15.7529V13.7529C4 13.2006 4.44772 12.7529 5 12.7529Z"
+                fill="#787878" />
+            </svg>&nbsp;&nbsp;&nbsp; Reportes
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" style="cursor:pointer"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M3.68014 5.84729C2.62708 7.20197 2 8.90422 2 10.7529C2 12.6016 2.62708 14.3039 3.68014 15.6586L5.8284 13.5103C5.30488 12.7199 5 11.772 5 10.7529C5 9.73385 5.30488 8.78597 5.8284 7.99554L3.68014 5.84729ZM5.09436 4.43307L7.24261 6.58133C8.03304 6.05781 8.98092 5.75293 10 5.75293C11.0191 5.75293 11.967 6.05781 12.7574 6.58133L14.9056 4.43307C13.551 3.38001 11.8487 2.75293 10 2.75293C8.15129 2.75293 6.44904 3.38001 5.09436 4.43307ZM16.3199 5.84729L14.1716 7.99554C14.6951 8.78597 15 9.73385 15 10.7529C15 11.772 14.6951 12.7199 14.1716 13.5103L16.3199 15.6586C17.3729 14.3039 18 12.6016 18 10.7529C18 8.90422 17.3729 7.20197 16.3199 5.84729ZM14.9056 17.0728L12.7574 14.9245C11.967 15.4481 11.0191 15.7529 10 15.7529C8.98092 15.7529 8.03304 15.4481 7.24261 14.9245L5.09436 17.0728C6.44904 18.1259 8.15129 18.7529 10 18.7529C11.8487 18.7529 13.551 18.1259 14.9056 17.0728ZM0 10.7529C0 5.23008 4.47715 0.75293 10 0.75293C15.5228 0.75293 20 5.23008 20 10.7529C20 16.2758 15.5228 20.7529 10 20.7529C4.47715 20.7529 0 16.2758 0 10.7529ZM7 10.7529C7 12.4098 8.34315 13.7529 10 13.7529C11.6569 13.7529 13 12.4098 13 10.7529C13 9.09608 11.6569 7.75293 10 7.75293C8.34315 7.75293 7 9.09608 7 10.7529Z"
+                fill="#787878" />
+            </svg>&nbsp;&nbsp;&nbsp; Soporte
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="20" height="17" viewBox="0 0 20 17" fill="none" style="cursor:pointer"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.000106305 3.75293C0.000106305 2.09608 1.34325 0.75293 3.00011 0.75293H17.0001C18.657 0.75293 20.0001 2.09608 20.0001 3.75293V4.73741C20.0002 4.74715 20.0002 4.75688 20.0001 4.76661V13.7529C20.0001 15.4098 18.657 16.7529 17.0001 16.7529H3.00011C1.34325 16.7529 0.000106305 15.4098 0.000106305 13.7529V4.7666C-3.53157e-05 4.75688 -3.55541e-05 4.74715 0.000106305 4.73742V3.75293ZM2.00011 6.62145V13.7529C2.00011 14.3052 2.44782 14.7529 3.00011 14.7529H17.0001C17.5524 14.7529 18.0001 14.3052 18.0001 13.7529V6.62145L11.6642 10.8454C10.6565 11.5172 9.3437 11.5172 8.33601 10.8454L2.00011 6.62145ZM18.0001 4.21775L10.5548 9.18128C10.2189 9.40521 9.78131 9.40521 9.44541 9.18128L2.00011 4.21775V3.75293C2.00011 3.20064 2.44782 2.75293 3.00011 2.75293H17.0001C17.5524 2.75293 18.0001 3.20064 18.0001 3.75293V4.21775Z"
+                fill="#787878" />
+            </svg>
+            &nbsp;&nbsp; Correos electrónicos
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" style="cursor:pointer"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.92925 1.02553C6.46271 0.882592 7.01105 1.19917 7.15399 1.73264L7.93045 4.63042C8.07339 5.16388 7.75681 5.71222 7.22334 5.85516C6.68987 5.9981 6.14154 5.68152 5.9986 5.14806L5.22214 2.25028C5.0792 1.71681 5.39578 1.16848 5.92925 1.02553ZM13.6566 3.09612C14.0472 3.48664 14.0472 4.11981 13.6566 4.51033L11.5353 6.63165C11.1448 7.02218 10.5116 7.02218 10.1211 6.63165C9.73059 6.24113 9.73059 5.60796 10.1211 5.21744L12.2424 3.09612C12.633 2.7056 13.2661 2.7056 13.6566 3.09612ZM0.272359 6.68238C0.415301 6.14891 0.963638 5.83233 1.4971 5.97527L4.39488 6.75173C4.92835 6.89467 5.24493 7.44301 5.10199 7.97647C4.95905 8.50994 4.41071 8.82652 3.87724 8.68358L0.979466 7.90712C0.446 7.76418 0.129418 7.21585 0.272359 6.68238ZM7.29273 8.04583C7.56745 7.7711 7.97644 7.68037 8.34158 7.81314L19.3416 11.8131C19.7313 11.9549 19.9931 12.3224 19.9997 12.7371C20.0063 13.1517 19.7563 13.5274 19.3712 13.6814L15.7793 15.1182L19.7069 19.0458C20.0975 19.4364 20.0975 20.0695 19.7069 20.46C19.3164 20.8506 18.6833 20.8506 18.2927 20.46L14.3651 16.5324L12.9283 20.1243C12.7743 20.5094 12.3986 20.7594 11.984 20.7528C11.5693 20.7462 11.2018 20.4844 11.06 20.0947L7.06004 9.09468C6.92726 8.72954 7.018 8.32056 7.29273 8.04583ZM9.67193 10.425L12.0443 16.9491L13.0714 14.3815C13.173 14.1274 13.3743 13.9261 13.6284 13.8245L16.196 12.7974L9.67193 10.425ZM5.87857 10.8742C6.26909 11.2647 6.26909 11.8979 5.87857 12.2884L3.75725 14.4097C3.36673 14.8003 2.73356 14.8003 2.34304 14.4097C1.95251 14.0192 1.95251 13.386 2.34304 12.9955L4.46436 10.8742C4.85488 10.4837 5.48805 10.4837 5.87857 10.8742Z"
+                fill="#787878" />
+            </svg>
+            &nbsp;&nbsp; Suscripciones
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="route.url === '/admin/categories' ? 'active' : ''" style="cursor:pointer"
+            (click)="redirect('admin/categories')">
+            <lucide-icon name="layout-grid" style="margin-right: 7px;"></lucide-icon>
+            Categorias
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="22" height="19" viewBox="0 0 22 19" fill="none" style="cursor:pointer"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11 2.75293C9.89543 2.75293 9 3.64836 9 4.75293C9 5.8575 9.89543 6.75293 11 6.75293C12.1046 6.75293 13 5.8575 13 4.75293C13 3.64836 12.1046 2.75293 11 2.75293ZM7 4.75293C7 2.54379 8.79086 0.75293 11 0.75293C13.2091 0.75293 15 2.54379 15 4.75293C15 6.96207 13.2091 8.75293 11 8.75293C8.79086 8.75293 7 6.96207 7 4.75293ZM4 6.75293C3.44772 6.75293 3 7.20064 3 7.75293C3 8.30521 3.44772 8.75293 4 8.75293C4.55228 8.75293 5 8.30521 5 7.75293C5 7.20064 4.55228 6.75293 4 6.75293ZM1 7.75293C1 6.09608 2.34315 4.75293 4 4.75293C5.65685 4.75293 7 6.09608 7 7.75293C7 9.40978 5.65685 10.7529 4 10.7529C2.34315 10.7529 1 9.40978 1 7.75293ZM18 6.75293C17.4477 6.75293 17 7.20064 17 7.75293C17 8.30521 17.4477 8.75293 18 8.75293C18.5523 8.75293 19 8.30521 19 7.75293C19 7.20064 18.5523 6.75293 18 6.75293ZM15 7.75293C15 6.09608 16.3431 4.75293 18 4.75293C19.6569 4.75293 21 6.09608 21 7.75293C21 9.40978 19.6569 10.7529 18 10.7529C16.3431 10.7529 15 9.40978 15 7.75293ZM11 11.7529C9.31743 11.7529 7.87516 12.7921 7.28463 14.2674C7.10133 14.7254 7 15.2261 7 15.7529V16.7529H15V15.7529C15 15.2261 14.8987 14.7254 14.7154 14.2674C14.1248 12.7921 12.6826 11.7529 11 11.7529ZM17 16.7529H20V15.7529C20 14.6484 19.1046 13.7529 18 13.7529C17.5439 13.7529 17.1237 13.905 16.7867 14.1627C16.9259 14.6699 17 15.2034 17 15.7529V16.7529ZM15.9286 12.3306C14.8455 10.7735 13.0427 9.75293 11 9.75293C8.9573 9.75293 7.15455 10.7735 6.07138 12.3306C5.46741 11.9643 4.75829 11.7529 4 11.7529C1.79086 11.7529 0 13.5438 0 15.7529V17.7529C0 18.3052 0.447715 18.7529 1 18.7529H21C21.5523 18.7529 22 18.3052 22 17.7529V15.7529C22 13.5438 20.2091 11.7529 18 11.7529C17.2417 11.7529 16.5326 11.9643 15.9286 12.3306ZM5.21328 14.1627C4.87632 13.905 4.45607 13.7529 4 13.7529C2.89543 13.7529 2 14.6484 2 15.7529V16.7529H5V15.7529C5 15.2034 5.07414 14.6699 5.21328 14.1627Z"
+                fill="#787878" />
+            </svg>
+            &nbsp;&nbsp; Personal
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="redirect('admin/categories')">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" style="cursor:pointer"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.35285 2.83432C8.02658 0.0591297 11.9734 0.0591342 12.6471 2.83432C12.7628 3.31083 13.3088 3.53695 13.7275 3.28181C16.1662 1.79586 18.9571 4.58669 17.4711 7.02544C17.216 7.44418 17.4421 7.9901 17.9186 8.10578C20.6938 8.77951 20.6938 12.7263 17.9186 13.4001C17.4421 13.5158 17.216 14.0617 17.4711 14.4804C18.9571 16.9192 16.1662 19.71 13.7275 18.224C13.3088 17.9689 12.7628 18.195 12.6471 18.6715C11.9734 21.4467 8.02658 21.4467 7.35285 18.6715C7.23717 18.195 6.69125 17.9689 6.27252 18.224C3.83376 19.71 1.04293 16.9192 2.52889 14.4804C2.78402 14.0617 2.5579 13.5158 2.08139 13.4001C-0.693795 12.7263 -0.6938 8.77951 2.08139 8.10578C2.5579 7.9901 2.78402 7.44418 2.52888 7.02544C1.04293 4.58669 3.83376 1.79585 6.27252 3.28181C6.69125 3.53695 7.23717 3.31082 7.35285 2.83432ZM10.7036 3.30616C10.5245 2.56852 9.47547 2.56852 9.2964 3.30615C8.86118 5.09889 6.80726 5.94966 5.23186 4.98974C4.58365 4.59478 3.84185 5.33657 4.23681 5.98478C5.19673 7.56019 4.34596 9.61411 2.55322 10.0493C1.81559 10.2284 1.81559 11.2775 2.55323 11.4565C4.34596 11.8918 5.19673 13.9457 4.23682 15.5211C3.84186 16.1693 4.58365 16.9111 5.23186 16.5161C6.80726 15.5562 8.86118 16.407 9.2964 18.1997C9.47547 18.9373 10.5245 18.9373 10.7036 18.1997C11.1388 16.407 13.1927 15.5562 14.7681 16.5161C15.4164 16.9111 16.1581 16.1693 15.7632 15.5211C14.8033 13.9457 15.654 11.8918 17.4468 11.4565C18.1844 11.2775 18.1844 10.2284 17.4468 10.0493C15.654 9.61411 14.8033 7.56019 15.7632 5.98478C16.1581 5.33657 15.4164 4.59478 14.7681 4.98975C13.1927 5.94966 11.1388 5.09889 10.7036 3.30616ZM10 8.75293C8.89543 8.75293 8 9.64836 8 10.7529C8 11.8575 8.89543 12.7529 10 12.7529C11.1046 12.7529 12 11.8575 12 10.7529C12 9.64836 11.1046 8.75293 10 8.75293ZM6 10.7529C6 8.54379 7.79086 6.75293 10 6.75293C12.2091 6.75293 14 8.54379 14 10.7529C14 12.9621 12.2091 14.7529 10 14.7529C7.79086 14.7529 6 12.9621 6 10.7529Z"
+                fill="#787878" />
+            </svg>
+            &nbsp;&nbsp; Configuración
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <header class="header header-sticky mb-4"
+        style="position: fixed !important ; width: 100% !important;box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);height: 85px">
+        <div class="container-fluid">
+          <button class="header-toggler px-md-0 me-md-3" type="button"
+            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+            <img src="assets/img/Tab.svg">
+          </button><a class="header-brand d-md-none" href="#" style="display: none;">
+            <img src="assets/img/Tab.svg"></a>
+          <ul class="header-nav d-none d-md-flex">
+            <img src="../../../assets/img/logo2-login.svg" style="width: 230px;">
           </ul>
-          </div>
-          <!--<div class="header-divider"></div>
-          <div class="container-fluid">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb my-0 ms-2">
-                <li class="breadcrumb-item">
-                  margin-left: 50px;margin-top: 110px;
-                  if breadcrumb is single<span>Home</span>
-                </li>
-                <li class="breadcrumb-item active"><span>Dashboard</span></li>
-              </ol>
-            </nav>
-          </div>-->
-        </header>
-        
-        <div style="width: 100%;background-color: white;min-height: 900px;">
-          <router-outlet></router-outlet>
+
+          <ul class="c-header-nav ml-auto mr-4">
+            <img src="assets/img/notification.svg">&nbsp;&nbsp;&nbsp;
+            <img src="assets/img/user-icon-header.svg">&nbsp;&nbsp;&nbsp;
+            <p class="text-user-header" style="margin-top: 12px;" [matMenuTriggerFor]="menu">
+              {{user.first_name }} {{user.last_name}}
+            </p>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item style="cursor:pointer" (click)="logout()">
+                <span>Cerrar Sesión</span>
+              </button>
+            </mat-menu>
+          </ul>
         </div>
-      </div>  
-    </body>
+      </header>
+
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
 </div>

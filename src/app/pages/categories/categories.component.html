@@ -8,68 +8,113 @@
   </div>
 
   <div class="group-tittle">
-    <p class="title-dashboard">Categories</p>
-    <button class="create-ads" (click)="myButton()" >CREAR GRUPO</button>
+    <p class="title-dashboard">Categorias</p>
+    <button class="create-ads" (click)="myButton()">CREAR GRUPO</button>
   </div>
 
-  <mat-tab-group animationDuration="0ms">
-    <mat-tab label="Grupos">
-      <ng-container *ngIf="(asyncTabs | async) === null; else first">
-        Loading tabs...
-      </ng-container>
-      <ng-template #first>
+  <div>
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Grupos">
+        <ng-container *ngIf="(asyncTabs | async) === null; else first">
+          Loading tabs...
+        </ng-container>
+        <ng-template #first>
 
-        <div class="group-select">
-          <label>Marca</label>
-          <ng-select [(ngModel)]="selectedModel" notFoundText="Sin Resultados" placeholder="Selecciona la marca"
-            [clearable]="false">
-            <ng-option *ngFor="let marca of marcas" [value]="marca.id">
-              {{marca.name}}
-            </ng-option>
-          </ng-select>
-        </div>
-        <mat-accordion>
-          <mat-expansion-panel #matExpansionPanel1>
-            <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel1, $event)">
-              <div class="group-list">
-                <h3>Group Name</h3>
+          <div class="group-select">
+            <label>Marca</label>
+            <ng-select [(ngModel)]="selectedModel" notFoundText="Sin Resultados" placeholder="Selecciona la marca"
+              [clearable]="false">
+              <ng-option *ngFor="let marca of marcas" [value]="marca.id">
+                {{marca.name}}
+              </ng-option>
+            </ng-select>
+          </div>
+          <mat-toolbar class="example-headers-align">
+            <h3 style="width: 30%;">Grupo</h3>
+            <h3 style="width: 30%;">Modelos</h3>
+            <span class="spacer"></span>
+            <h3 style="width: 30%;">Opciones</h3>
+          </mat-toolbar>
+          <mat-accordion>
+            <mat-expansion-panel #matExpansionPanel1>
+              <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel1, $event)">
+                <div class="group-list">
+                  <h3 style="width: 30%;">Group Name</h3>
+                  <h3 style="width: 30%;">3d1482c6-9f9d-4271-ab8b-4db66cb8b7b5</h3>
+                  <span class="spacer"></span>
+                  <div style="width: 30%;">
+                    <lucide-icon name="edit" class="myicon" (click)="myButton()"></lucide-icon>
+                    <lucide-icon name="plus-circle" class="myicon" (click)="myButton()"></lucide-icon>
+                    <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                  </div>
+                </div>
+              </mat-expansion-panel-header>
+              <div class="model-list">Model id #1
                 <div>
-                  <lucide-icon name="edit" class="myicon"></lucide-icon>
-                  <lucide-icon name="plus-circle" class="myicon"></lucide-icon>
-                  <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
                 </div>
               </div>
-            </mat-expansion-panel-header>
-            <div class="model-list">Model id #1
-              <div>
-                <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+              <div class="model-list">Model id #1
+                <div>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                </div>
               </div>
-            </div>
-            <div class="model-list">Model id #1
-              <div>
-                <lucide-icon name="trash-2" class="myicon"></lucide-icon>
+              <div class="model-list">Model id #3
+                <div>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                </div>
               </div>
-            </div>
-            <div class="model-list">Model id #3
-              <div>
-                <lucide-icon name="trash-2" class="myicon"></lucide-icon>
-              </div>
-            </div>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </ng-template>
-    </mat-tab>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </ng-template>
+      </mat-tab>
 
-    <mat-tab label="Marcas">
-      <ng-container *ngIf="(asyncTabs2 | async) === null; else second">
-        Loading tabs...
-      </ng-container>
-      <ng-template #second>
-        <div *ngFor="let tab of asyncTabs2 | async">
-          {{tab.content}}
-        </div>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
+      <mat-tab label="Marcas">
+        <ng-container *ngIf="(asyncTabs2 | async) === null; else second">
+          Loading tabs...
+        </ng-container>
+        <ng-template #second>
+          <mat-toolbar class="example-headers-align">
+            <h3 style="width: 30%;">Marca</h3>
+            <span class="spacer"></span>
+            <h3 style="width: 20%;"># Modelos</h3>
+            <h3 style="width: 20%;">Agrupar</h3>
+            <h3 style="width: 30%;">Opciones</h3>
+          </mat-toolbar>
+          <mat-accordion>
+            <mat-expansion-panel #matExpansionPanel1>
+              <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel1, $event)">
+                <div class="marca-list">
+                  <h3 style="width: 30%;">Marca Name</h3>
+                  <h3 style="width: 20%; margin-left: 10px;">45</h3>
+                  <mat-slide-toggle style="width: 20%; margin-left: 10px;"></mat-slide-toggle>
+                  <span class="spacer"></span>
+                  <div style="width: 30%;">
+                    <lucide-icon name="edit" class="myicon" (click)="myButton()"></lucide-icon>
+                    <lucide-icon name="plus-circle" class="myicon" (click)="myButton()"></lucide-icon>
+                  </div>
+                </div>
+              </mat-expansion-panel-header>
+              <div class="model-list">Model id #1
+                <div>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                </div>
+              </div>
+              <div class="model-list">Model id #1
+                <div>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                </div>
+              </div>
+              <div class="model-list">Model id #3
+                <div>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 
 </div>

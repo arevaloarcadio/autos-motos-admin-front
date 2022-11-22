@@ -16,7 +16,7 @@
 } */
 
 .mat-tab-body-content {
-  background-color: white;
+  //background-color: white;
   padding: 20px;
 }
 
@@ -32,6 +32,28 @@
 
 .mat-expansion-panel-header:not([aria-disabled=true]) {
   cursor: auto !important;
+}
+
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+  //font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #00CB08;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: white;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  background-color: white;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  padding: 0 24px !important;
 }
 
 .myicon {
@@ -60,8 +82,14 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+  //justify-content: space-between;
+  padding: 10px 0px;
+}
+
+.marca-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .spacer {
