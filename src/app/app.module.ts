@@ -24,10 +24,9 @@ import { InicioComponent } from './pages/seller/inicio/inicio.component';*/
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserFormComponent } from './pages/user-form/user-form.component';
-
-
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -51,7 +50,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SendEmailModalComponent } from './pages/send-email-modal/send-email-modal.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { CategoriesComponent } from './pages/categories/categories.component';
 import { LucideAngularModule, icons } from 'lucide-angular';
+import { CreateModalComponent } from './pages/categories/create-modal/create-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,8 @@ import { LucideAngularModule, icons } from 'lucide-angular';
     UserFormComponent,
     UserDetailsComponent,
     SendEmailModalComponent,
+    CategoriesComponent,
+    CreateModalComponent,
   ],
   imports: [
     //SidebarModule,
@@ -92,7 +95,9 @@ import { LucideAngularModule, icons } from 'lucide-angular';
     MatSnackBarModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatExpansionModule,
     NgSelectModule,
+    MatDialogModule,
     LucideAngularModule.pick(icons),
     ToastrModule.forRoot(),
     SharedModule
