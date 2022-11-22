@@ -51,6 +51,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SendEmailModalComponent } from './pages/send-email-modal/send-email-modal.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { LucideAngularModule, icons } from 'lucide-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +93,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatGridListModule,
     MatPaginatorModule,
     NgSelectModule,
+    LucideAngularModule.pick(icons),
     ToastrModule.forRoot(),
     SharedModule
   ],
