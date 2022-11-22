@@ -27,6 +27,7 @@ import { UserFormComponent } from './pages/user-form/user-form.component';
 
 
 
+import { NgSelectModule } from '@ng-select/ng-select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -90,6 +91,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatSnackBarModule,
     MatGridListModule,
     MatPaginatorModule,
+    NgSelectModule,
     ToastrModule.forRoot(),
     SharedModule
   ],
