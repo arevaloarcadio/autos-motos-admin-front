@@ -9,38 +9,35 @@
 
   <div class="group-tittle">
     <p class="title-dashboard">Categorias</p>
-    <button class="create-ads" (click)="myButton()">CREAR GRUPO</button>
+    <button class="create-ads" (click)="openCreateDialog('0ms', '0ms')">CREAR GRUPO</button>
   </div>
 
   <div>
     <mat-tab-group animationDuration="0ms">
       <mat-tab label="Grupos">
-        <ng-container *ngIf="(asyncTabs | async) === null; else first">
-          Loading tabs...
-        </ng-container>
-        <ng-template #first>
-
-          <div class="group-select">
-            <label>Marca</label>
-            <ng-select [(ngModel)]="selectedModel" notFoundText="Sin Resultados" placeholder="Selecciona la marca"
-              [clearable]="false">
-              <ng-option *ngFor="let marca of marcas" [value]="marca.id">
-                {{marca.name}}
-              </ng-option>
-            </ng-select>
-          </div>
-          <mat-toolbar class="example-headers-align">
-            <h3 style="width: 30%;">Grupo</h3>
-            <h3 style="width: 30%;">Modelos</h3>
-            <span class="spacer"></span>
-            <h3 style="width: 30%;">Opciones</h3>
-          </mat-toolbar>
-          <mat-accordion>
+        <div class="group-select">
+          <label>Marca</label>
+          <ng-select [(ngModel)]="selectedBrand" notFoundText="Sin Resultados" placeholder="Selecciona la marca"
+            [clearable]="false" (change)="loadGroups(selectedBrand)">
+            <ng-option *ngFor="let brand of brands" [value]="brand.id">
+              {{brand.name}}
+            </ng-option>
+          </ng-select>
+        </div>
+        <mat-toolbar class="gruop-toolbar">
+          <h3 style="width: 30%;">Grupo</h3>
+          <h3 style="width: 30%;"></h3>
+          <!-- <h3 style="width: 30%;">Modelos</h3> -->
+          <span class="spacer"></span>
+          <h3 style="width: 30%;">Opciones</h3>
+        </mat-toolbar>
+        <ng-container *ngIf="groups.length > 0; else first">
+          <mat-accordion *ngFor="let group of groups">
             <mat-expansion-panel #matExpansionPanel1>
               <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel1, $event)">
                 <div class="group-list">
-                  <h3 style="width: 30%;">Group Name</h3>
-                  <h3 style="width: 30%;">3d1482c6-9f9d-4271-ab8b-4db66cb8b7b5</h3>
+                  <h3 style="width: 30%;">{{group.name}}</h3>
+                  <h3 style="width: 30%;"></h3>
                   <span class="spacer"></span>
                   <div style="width: 30%;">
                     <lucide-icon name="edit" class="myicon" (click)="myButton()"></lucide-icon>
@@ -49,28 +46,23 @@
                   </div>
                 </div>
               </mat-expansion-panel-header>
-              <div class="model-list">Model id #1
+              <div class="model-list" *ngFor="let model of group.models">{{model.name}}
                 <div>
-                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
-                </div>
-              </div>
-              <div class="model-list">Model id #1
-                <div>
-                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
-                </div>
-              </div>
-              <div class="model-list">Model id #3
-                <div>
-                  <lucide-icon name="trash-2" class="myicon" (click)="myButton()"></lucide-icon>
+                  <lucide-icon name="trash-2" class="myicon" (click)="myButton(model.id)"></lucide-icon>
                 </div>
               </div>
             </mat-expansion-panel>
           </mat-accordion>
+        </ng-container>
+        <ng-template #first>
+          <p *ngIf="selectedBrand">
+            Cargando grupos...
+          </p>
         </ng-template>
       </mat-tab>
 
       <mat-tab label="Marcas">
-        <ng-container *ngIf="(asyncTabs2 | async) === null; else second">
+        <ng-container *ngIf="brands.length; else second">
           Loading tabs...
         </ng-container>
         <ng-template #second>
@@ -118,3 +110,5 @@
   </div>
 
 </div>
+
+<app-load-spinner *ngIf="isLoadingHttp"></app-load-spinner>
