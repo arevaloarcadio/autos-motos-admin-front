@@ -1,1 +1,47 @@
-<p>create-modal works!</p>
+<div mat-dialog-title class="dialog-title">
+  <h2>Crear Grupo</h2>
+  <button class="form-close" mat-button [disableRipple]="true" mat-dialog-close>
+    <mat-icon >close</mat-icon>
+  </button>
+</div>
+<form [formGroup]="groupForm" (ngSubmit)="save()">
+
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" class="form-input" formControlName="name" placeholder="Nombre">
+    <p class="text-error" *ngIf="noValidField('name')">
+      Campo requerido
+    </p>
+  </div>
+
+  <div class="form-group">
+    <label>Marca</label>
+    <ng-select formControlName="make_id" notFoundText="Sin Resultados" placeholder="Selecciona la marca"
+      [clearable]="false">
+      <ng-option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </ng-option>
+    </ng-select>
+    <p class="text-error" *ngIf="noValidField('make_id')">
+      Campo requerido
+    </p>
+  </div>
+
+  <!-- <div class="form-group">
+    <label>Modelo</label>
+    <ng-select formControlName="model" notFoundText="Sin Resultados" placeholder="Selecciona el modelo"
+      [clearable]="false"  [loading]="isLoading">
+      <ng-option *ngFor="let model of models" [value]="model.id">
+        {{model.name}}
+      </ng-option>
+    </ng-select>
+  </div> -->
+
+  <div mat-dialog-actions align="end">
+    <button class="form-button secondary" mat-button mat-dialog-close>CANCELAR</button>
+    <button class="form-button primary" type="submit" mat-button>GUARDAR</button>
+  </div>
+
+</form>
+
+<app-load-spinner *ngIf="isLoadingHttp"></app-load-spinner>
