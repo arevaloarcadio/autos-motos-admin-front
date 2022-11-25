@@ -25,7 +25,7 @@ export class UserService {
     }
 
     LogInAdmin(datos:any){
-        const send = this.http.post(`${this.url}admin/login`,datos).toPromise()
+        const send = this.http.post(`${this.url}login`,datos).toPromise()
         return send;
     }
 

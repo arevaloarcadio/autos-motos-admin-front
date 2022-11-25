@@ -22,8 +22,9 @@ export class ImportMassive {
     url = environment.serverUrl;
 
     UploadFileImportMassive(data :any): Promise<any> {
-        const send = this.http.post(`${this.url}admin/import/massive`,data,this.options).toPromise()
+        const send = this.http.post(`${this.url}import/massive`,data,this.options).toPromise()
         return send;
     }
 
 }
+
