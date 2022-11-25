@@ -1,18 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 //import { SidebarModule } from '@coreui/angular';
 import { LayoutRoutingModule } from './layout-routing.module';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatTableModule  } from '@angular/material/table';
-import { MatIconModule  } from '@angular/material/icon';
-import { MatSelectModule  } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { LayoutComponent } from './layout.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AlertMessageComponent } from '../alert-message/alert-message.component';
@@ -25,15 +17,28 @@ import { AdsIndividualDetailsComponent } from '../ads-individual-details/ads-ind
 import { DetailsCsvAdsComponent } from '../details-csv-ads/details-csv-ads.component';
 import { CommentRejectedComponent } from '../comment-rejected/comment-rejected.component';
 import { UsersTableComponent } from '../users-table/users-table.component';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatMenuModule } from '@angular/material/menu';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { LucideAngularModule, icons } from 'lucide-angular';
-//import {MatProgressBarModule} from '@angular/material'
+import { MaterialModule } from '../../material/material.module';
 
+import {
+  DateAdapter,
+  MAT_DATE_LOCALE,
+  MAT_DATE_FORMATS,
+} from '@angular/material/core';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+export const MY_FORMATS = {
+  parse: {
+      dateInput: 'LL',
+  },
+  display: {
+      dateInput: 'D-MM-Y',
+      monthYearLabel: 'MMM YYYY',
+      dateA11yLabel: 'LL',
+      monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -52,33 +57,18 @@ import { LucideAngularModule, icons } from 'lucide-angular';
     
   ],
   imports: [
-    LayoutRoutingModule,
-    MatDatepickerModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
     CdkAccordionModule,
     CommonModule,
-    MatDialogModule,
-    MatTableModule,
     FormsModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatMenuModule,
+    InfiniteScrollModule,
+    LayoutRoutingModule,
     LucideAngularModule.pick(icons),
-    InfiniteScrollModule
+    MaterialModule,
+    SharedModule
   ],
   providers: [  
     MatDatepickerModule,
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
-  ],
-  exports: [
-    MatTableModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatSelectModule
+    {provide: MAT_DATE_LOCALE, useValue: MY_FORMATS},
   ]
 })
 export class LayoutModule { }

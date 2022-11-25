@@ -45,12 +45,12 @@ export class JwtInterceptor implements HttpInterceptor {
             // do error handling here
             if (err.status === 401) {
               if (err.message === 'Unauthenticated') {
-                this.route.navigate(['/auth/login']);
+                this.route.navigate(['/login']);
               }
             }
             if (err.status === 401) {
               localStorage.clear();
-              this.route.navigate(['/auth/login']);
+              this.route.navigate(['/login']);
             }
           }
         },

@@ -1,68 +1,32 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-// import { HttpClientModule } from '@angular/common/http';
 import {
-  HttpClientModule,
-  HttpClient,
   HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
 } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 //import { SidebarModule } from '@coreui/angular';
-
-
-/*import { LandingComponent } from './pages/landing/landing.component';
-import { CompararComponent } from './pages/buyer/comparar/comparar.component'
-import { LayoutComponent } from './pages/layout/layout.component';
-
-import { SignupComponent } from './pages/signup/signup.component';
-import { SignupProfComponent } from './pages/signup-prof/signup-prof.component';
-import { SellerLayoutComponent } from './pages/layout/seller-layout/seller-layout.component';
-import { InicioComponent } from './pages/seller/inicio/inicio.component';*/
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { LoginComponent } from './pages/login/login.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserFormComponent } from './pages/user-form/user-form.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { UserDetailsComponent } from './pages/user-details/user-details.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { SharedModule } from './pages/shared/shared.module';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { SendEmailModalComponent } from './pages/send-email-modal/send-email-modal.component';
-import { JwtInterceptor } from './interceptor/jwt.interceptor';
-import { ToastrModule } from 'ngx-toastr';
+import { BrowserModule } from '@angular/platform-browser';
 import { CategoriesComponent } from './pages/categories/categories.component';
-import { LucideAngularModule, icons } from 'lucide-angular';
 import { CreateModalComponent } from './pages/categories/create-modal/create-modal.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { LoginComponent } from './pages/login/login.component';
+import { LucideAngularModule, icons } from 'lucide-angular';
+import { MaterialModule } from './material/material.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SendEmailModalComponent } from './pages/send-email-modal/send-email-modal.component';
+import { SharedModule } from './shared/shared.module';
+import { ToastrModule } from 'ngx-toastr';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserFormComponent } from './pages/user-form/user-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    /*LandingComponent,
-    LayoutComponent,
-    CompararComponent,
-    SignupComponent,
-    SignupProfComponent,
-    SellerLayoutComponent,
-    InicioComponent,*/
     LoginComponent,
     UserFormComponent,
     UserDetailsComponent,
@@ -78,27 +42,8 @@ import { CreateModalComponent } from './pages/categories/create-modal/create-mod
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatSelectModule,
-    MatTabsModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatChipsModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatListModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatGridListModule,
-    MatPaginatorModule,
-    MatExpansionModule,
+    MaterialModule,
     NgSelectModule,
-    MatDialogModule,
-    MatSlideToggleModule,
     LucideAngularModule.pick(icons),
     ToastrModule.forRoot(),
     SharedModule
