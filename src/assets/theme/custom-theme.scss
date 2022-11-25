@@ -1,0 +1,122 @@
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48I2VkMWMyNCIsIj9lcjwjZmFiYmJkIiwiO2VyPCNlNTExMTZ$LCIlPmBePCNmZmZmZmYiLCI~ZXI8I2VkMWMyNCIsIjtlcjwjZWQxYzI0fiwid2Fybj5gXjwjNTgyYTJhIiwiP2VyPCNjZGJmYmYiLCI7ZXI8IzNkMTkxOX4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00IiwiZmFtaWx5PFVidW50dSIsInZhcmlhbnQ8cmVndWxhcn4sYEA8KC0zIiwiZmFtaWx5PFVidW50dX4sYEA8KC0yIiwiZmFtaWx5PFVidW50dX4sYEA8KC0xIiwiZmFtaWx5PFVidW50dX4sYEA8aGVhZGxpbmUiLCJmYW1pbHk8VWJ1bnR1fixgQDx0aXRsZSIsImZhbWlseTxVYnVudHUiLCJ2YXJpYW50PHJlZ3VsYXJ$LGBAPHN1YiktMiIsImZhbWlseTxVYnVudHV$LGBAPHN1YiktMSIsImZhbWlseTxVYnVudHUiLCJ2YXJpYW50PHJlZ3VsYXJ$LGBAPGJvZHktMiIsImZhbWlseTxVYnVudHUiLCJ2YXJpYW50PHJlZ3VsYXJ$LGBAPGJvZHktMSIsImZhbWlseTxVYnVudHV$LGBAPGJ1dHRvbiIsImZhbWlseTxVYnVudHUiLCJ2YXJpYW50PHJlZ3VsYXJ$LGBAPGNhcHRpb24iLCJmYW1pbHk8VWJ1bnR1fixgQDxpbnB1dCIsImZhbWlseTxVYnVudHUiLCJzaXplPm51bGx9XSwiaWNvbnM8T3V0bGluZWQiLCI~bmVzcz5mYWxzZSwidmVyc2lvbj4xM30=
+*/
+
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+
+// Fonts
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons+Outlined';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+     
+$fontConfig: (
+  display-4: mat.define-typography-level(112px, 112px, 400, 'Ubuntu', -0.0134em),
+  display-3: mat.define-typography-level(56px, 56px, 400, 'Ubuntu', -0.0089em),
+  display-2: mat.define-typography-level(45px, 48px, 400, 'Ubuntu', 0.0000em),
+  display-1: mat.define-typography-level(34px, 40px, 400, 'Ubuntu', 0.0074em),
+  headline: mat.define-typography-level(24px, 32px, 400, 'Ubuntu', 0.0000em),
+  title: mat.define-typography-level(20px, 32px, 400, 'Ubuntu', 0.0075em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, 'Ubuntu', 0.0094em),
+  subheading-1: mat.define-typography-level(15px, 24px, 400, 'Ubuntu', 0.0067em),
+  body-2: mat.define-typography-level(14px, 24px, 400, 'Ubuntu', 0.0179em),
+  body-1: mat.define-typography-level(14px, 20px, 400, 'Ubuntu', 0.0179em),
+  button: mat.define-typography-level(14px, 14px, 400, 'Ubuntu', 0.0893em),
+  caption: mat.define-typography-level(12px, 20px, 400, 'Ubuntu', 0.0333em),
+  input: mat.define-typography-level(inherit, 1.125, 400, 'Ubuntu', 1.5px)
+);
+
+
+@include mat.core();
+
+$gainsboro-palette: (
+  50: #f9f9fa,
+  100: #f3f3f4,
+  200: #ebebec,
+  300: #dcdcdd,
+  400: #b9b9ba,
+  500: #99999a,
+  600: #707071,
+  700: #5d5d5e,
+  800: #3e3e3f,
+  900: #1d1d1e,
+  A100: #f5f5f5,
+  A200: #eaeaeb,
+  A400: #d6d6d7,
+  A700: #838386,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white,
+  )
+);
+$crimson-palette: (
+  50: #ffebef,
+  100: #ffcdc5,
+  200: #f0999f,
+  300: #e77179,
+  400: #f24e58,
+  500: #f83a40,
+  600: #e9313e,
+  700: #ED1C24,
+  800: #ca1e30,
+  900: #bb0d24,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+$bluesky-primary: mat.define-palette($crimson-palette, 700, 300, 900);
+$bluesky-accent: mat.define-palette($gainsboro-palette, 300, 100, 500);
+$bluesky-theme: mat.define-light-theme((
+  color: (
+    primary: $bluesky-primary,
+    accent: $bluesky-accent,
+  )
+));
+@include mat.all-component-themes($bluesky-theme);
+html, body { height: 100%; }
+
+
+// Handle buttons appropriately, with respect to line-height
+.mat-raised-button, .mat-stroked-button, .mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 .65em;
+  min-width: 3em;
+  line-height: 36.4px
+}
+
+.mat-standard-chip {
+  padding: .5em .85em;
+  min-height: 2.5em;
+}
+
+.material-icons {
+  font-size: 24px;
+  font-family: 'Material Icons Outlined', 'Material Icons';  
+  .mat-badge-content {
+    font-family: 'Ubuntu';
+  }
+}
